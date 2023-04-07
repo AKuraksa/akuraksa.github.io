@@ -52,7 +52,7 @@ nav a:hover {
     float: left;
     width: 30%;
 }
-main{
+.rightcolumn{
     padding-left: 20px;
     border: 0;
     float: left;
@@ -75,7 +75,7 @@ footer{
     padding: 10px 3%;
     background-color: #FFAF45;
     font-size: 14px;
-    
+    line-height: 0.5;
 }
 
 a{
@@ -84,12 +84,9 @@ a{
 }
 
 @media screen and (max-width: 800px) {
-    .leftcolumn, main {   
+    .leftcolumn, .rightcolumn {   
       width: 100%;
       padding: 0;
       float: right;
-    }
-    .leftcolumn{
-        float: right;
     }
   }
