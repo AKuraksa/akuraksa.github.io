@@ -7,4 +7,5 @@ Tato stránka slouží jako rozcestník
 * [Jak psát v md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 Tento web je momentálně ve vývoji. Dekuji za pochopení :)
+
 Jakékoliv problémy piš [sem](https://github.com/AKuraksa/akuraksa.github.io/issues)
