@@ -1,41 +1,38 @@
+/* https://paletton.com/#uid=73J0u0kqaWV9U+sjiZqyxPm-npY */
+/* https://paletton.com/#uid=73x0u0ksQMghyREnlODHmJMHqrW */
+
+*{
+    box-sizing: border-box;
+}
 body{
     margin: 0;
     border: 0;
     padding: 0;
-    background-color:honeydew;
+    background-color:#6FB1E4;
 }
-
 #page{
     margin: 20px 10% 10px 10%;
     border: 0;
     padding: 0;
-    background-color: white;
 }
 
 header{
     margin: 0;
     border: 0;
     padding: 10px 5%;
+    background-color: white;
 }
 
 nav{
     margin: 0;
     border: 0;
     padding: 0 5%;
-    background-color: gray;
+    background-color: #3333DC;
     color: white;
-    display: block;
-}
-nav ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
 }
-nav li {
+nav a{
     float: left;
-}
-nav li a{
     display: block;
     margin: 0;
     padding: 10px 16px;
@@ -43,24 +40,53 @@ nav li a{
     text-align: center;
     text-decoration: none;
 }
-nav li a:hover {
-    background-color: #111;
-  }
-
-footer{
-    margin: 0;
-    border: 0;
-    padding: 10px 3%;
-    background-color: lightgray;
+nav a:hover {
+    background-color: #FFC519;
+    color: #000;
 }
 
-main{
+.leftcolumn{
     margin: 0;
     border: 0;
-    padding: 10px 10%;
+    float: left;
+    width: 30%;
+}
+main{
+    padding-left: 20px;
+    border: 0;
+    float: left;
+    width: 70%;
+}
+.card{
+    background-color: #FFF;
+    padding: 30px;
+    margin-top: 20px;
+}
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer{
+    margin-top: 20px;
+    border: 0;
+    padding: 10px 3%;
+    background-color: #FFAF45;
 }
 
 a{
     text-decoration: none; 
     color: black; 
 }
+
+@media screen and (max-width: 800px) {
+    .leftcolumn, main {   
+      width: 100%;
+      padding: 0;
+      float: right;
+    }
+    .leftcolumn{
+        float: right;
+    }
+  }
