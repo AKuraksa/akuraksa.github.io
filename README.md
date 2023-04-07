@@ -1,9 +1,9 @@
 # Vitej návštěvníku
+Tato stránka slouží jako rozcestník
 ## Odkazy
-### * [Moje portfolio](https://akuraksa.github.io/portfolio/index.html)
+* [Moje portfolio](https://akuraksa.github.io/portfolio/index.html)
 * [Materiály k maturitě](https://ujepcz-my.sharepoint.com/:f:/g/personal/st98395_students_ujep_cz/Ek-gbxFZfstFrUa8Yl0uUckBYqQJvpqqhsG6v4vmiWRwNA)
+* [Materiály na UJEP](https://ujepcz-my.sharepoint.com/:f:/g/personal/st98395_students_ujep_cz/EsxAJzDi_LRCmAuxq3AqSp4BFAGc3ub9bhwoRtUFr0lN0A)
+* [Jak psát v md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-Toto je popis repozitáře akuraksa.github.io
-[Jak psát v md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-Tento veb je momentálně ve vývoji. Dekuji za pochopení :)
+Tento web je momentálně ve vývoji. Dekuji za pochopení :)
