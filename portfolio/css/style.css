@@ -3,6 +3,7 @@
 
 *{
     box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
 }
 body{
     margin: 0;
@@ -73,6 +74,8 @@ footer{
     border: 0;
     padding: 10px 3%;
     background-color: #FFAF45;
+    font-size: 14px;
+    
 }
 
 a{
