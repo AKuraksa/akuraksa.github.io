@@ -23,6 +23,15 @@ header{
     padding: 10px 5%;
     background-color: white;
 }
+header img{
+    border-radius: 100%;
+    float: left;
+}
+header h1{
+    float: left;
+    margin-left: 20px;
+    margin-top: 40px;
+}
 
 nav{
     margin: 0;
@@ -50,13 +59,13 @@ nav a:hover {
     margin: 0;
     border: 0;
     float: left;
-    width: 30%;
+    width: 70%;
 }
 .rightcolumn{
     padding-left: 20px;
     border: 0;
     float: left;
-    width: 70%;
+    width: 30%;
 }
 .card{
     background-color: #FFF;
