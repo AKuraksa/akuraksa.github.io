@@ -52,6 +52,9 @@ nav a:hover {
     background-color: #FFC519;
     color: #000;
 }
+.nav-right{
+    float: right;
+}
 
 .leftcolumn{
     margin: 0;
