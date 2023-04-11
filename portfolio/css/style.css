@@ -3,16 +3,14 @@
 
 *{
     box-sizing: border-box;
-    font-family: Tahoma, sans-serif;
 }
 body{
     margin: 0;
-    border: 0;
     padding: 0;
-    background-color:#6FB1E4;
+    background-color:#e8e8e8;
 }
-#page{
-    margin: 20px 10% 10px 10%;
+main{
+    margin: 20px 5% 10px 5%;
     border: 0;
     padding: 0;
 }
@@ -71,6 +69,14 @@ nav a:hover {
     background-color: #FFF;
     padding: 30px;
     margin-top: 20px;
+    border: solid 1px;
+    border-radius: 10px;
+}
+article{
+    margin-left: 20px;
+}
+article p{
+    line-height: 0.5;
 }
 .row::after {
     content: "";
