@@ -81,6 +81,12 @@ article{
 article p{
     line-height: 0.5;
 }
+article{
+    margin-left: 20px;
+}
+article p{
+    line-height: 0.5;
+}
 .row::after {
     content: "";
     display: table;
