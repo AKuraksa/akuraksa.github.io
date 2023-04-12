@@ -97,8 +97,8 @@ footer{
 }
 
 a{
-    text-decoration: none; 
-    color: black; 
+    text-decoration: none;
+    color: green; 
 }
 
 @media screen and (max-width: 800px) {
