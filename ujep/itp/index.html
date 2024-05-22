@@ -22,6 +22,7 @@
                 <p>maska → 255.255.255.0</p>
                 <p>wildcard → 0.0.0.255</p>
                 <p>x/id -> číslo <span class="comment">/*Pro zjištění rozsahu dej za příkaz <span class="command">?</span>*/</span></p>
+                <p>g0/0/0 → slot/modul/port</p>
             </div>
         </details>
         <section>
@@ -195,23 +196,24 @@
                 <p><span class="header">R(config-router)# </span><span class="command">redistribute ospf [id] metric 3
                     </span></p>
                 <h2>EIGRP</h2>
-                <h3>RIPv2</h3>
+                <p><span class="comment">/*RIPv2*/</span></p>
                 <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
                 <p><span class="header">R(config-router)# </span><span class="command">redistribute rip metric 10000 10
                         255 100 1000 </span></p>
-                <h3>OSPF</h3>
+                <p><span class="comment">/*OSPF*/</span></p>
                 <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
                 <p><span class="header">R(config-router)# </span><span class="command">redistribute ospf [id] metric
                         10000 100 255 1 1500 </span></p>
                 <h2>OSPF</h2>
-                <h3>RIPv2</h3>
+                <p><span class="comment">/*RIPv2*/</span></p>
                 <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
                 <p><span class="header">R(config-router)# </span><span class="command">redistribute rip subnets </span>
                 </p>
-                <h3>RIPv2</h3>
+                <p><span class="comment">/*EIGRP*/</span></p>
                 <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
                 <p><span class="header">R(config-router)# </span><span class="command">redistribute eigrp [id] subnets
-                    </span></p>
+                    </span></p> <br>
+                <p><span class="comment">/*Redistribuce se dělá na jednom Routeru a musíš udělat redistribuci pro oba routovací protokoly. Tzn pokud máš jednu síť eigrp a druhou ospf tak router, který je mezi těmito sítěmi musí umět oba routovací protokoly a obě musí mít pravidlo jak překládat (redistribuovat) pro tu druhou.*/</span></p>
             </div>
         </section>
         <section>
@@ -252,8 +254,9 @@
                 <h1>Etherchannel</h1>
             </div>
             <div class="code">
-                <p><span class="header">SW(config)# </span><span class="command">interface range f0/21-24</span><span class="comment">/*Rozsah potrů, u kterých chceme stejnou komunikaci*/</span><span class="sc">int range f0/21-24</span></p>
-                <p><span class="header">SW(config-if-range)# </span><span class="command">channel-group 1 mode active</span></p>
+                <p><span class="header">SW(config)# </span><span class="command">interface range f0/21-24</span><span class="comment">/*Rozsah potrů, u kterých chceme stejnou komunikaci*/</span><span class="sc">int r f0/21-24</span></p>
+                <p><span class="header">SW(config-if-range)# </span><span class="command">channel-group 1 mode active </span><span class="sc">channel-g 1 m ac</span></p>
+                <p><span class="comment">/*Použitím active používnáme protokol LACP. Pokud máme více SW do kruhu použijeme na 1 channelu mod passive*/</span></p>
                 <p><span class="comment">/*Toto uděláme na obou SW (Na obou může být různý range). Nezapomeň na <a href="#trunk">Trunk</a>*/</span></p>
             </div>
         </section>
