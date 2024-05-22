@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-white: #fff;
     --color-black: #000;
 }
@@ -35,17 +35,24 @@ blockquote,
 dl,
 dd {
     margin: 0;
-}
-p{
-    line-height: 25px;
     color: var(--color-white);
+}
+
+h2,
+h3,
+h4 {
+    margin-top: 10px;
+}
+
+p {
+    line-height: 25px;
 }
 
 header {
     padding: 2vh 2vw;
     display: flex;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgb(30, 30, 30);
 }
 
 main {
@@ -55,37 +62,45 @@ main {
     transition: all 0.3s ease;
 }
 
-.text{
-    color: white;
-    padding: 10px 0;
-}
-
-.code{
-    background-color: var(--color-black);
+section {
     margin: 10px 0;
-    padding: 30px 20px;
 }
-    .code .command{
-        color: rgb(255, 169, 70);
-        font-weight: bold;
-    }
-    .code .comment{
-        color: rgb(60, 217, 60);
-    }
-    .code .sc{
-        color: rgb(255, 39, 39);
-        font-weight: bold;
-        float: right;
-    }
 
-.code-show{
+summary {
+    color: rgb(0, 255, 255);
+}
+
+.code {
+    background-color: var(--color-black);
+    margin: 5px 0;
+    padding: 20px;
+}
+
+.code .command {
+    color: rgb(255, 169, 70);
+    font-weight: bold;
+}
+
+.code .comment {
+    color: rgb(60, 217, 60);
+}
+
+.code .sc {
+    color: rgb(255, 39, 39);
+    font-weight: bold;
+    float: right;
+}
+
+.code-show {
     background-color: var(--color-black);
     margin: 10px 0 0 30px;
     padding: 15px 20px;
     line-height: 15px;
 }
-.code-show .command{
+
+.code-show .command {
     color: rgb(255, 169, 70);
+    font-weight: normal;
 }
 
 footer {
@@ -93,8 +108,12 @@ footer {
     justify-content: space-between;
     padding: 10px 8px;
     line-height: 40px;
-    background-color: var(--color-white);
+    background-color: rgb(30, 30, 30);
     box-shadow: var(--box-shadow);
     position: sticky;
     top: 100%;
+}
+
+img{
+    
 }
