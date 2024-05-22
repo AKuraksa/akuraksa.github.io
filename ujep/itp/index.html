@@ -256,7 +256,7 @@
             <div class="code">
                 <p><span class="header">SW(config)# </span><span class="command">interface range f0/21-24</span><span class="comment">/*Rozsah potrů, u kterých chceme stejnou komunikaci*/</span><span class="sc">int r f0/21-24</span></p>
                 <p><span class="header">SW(config-if-range)# </span><span class="command">channel-group 1 mode active </span><span class="sc">channel-g 1 m ac</span></p>
-                <p><span class="comment">/*Použitím active používnáme protokol LACP. Pokud máme více SW do kruhu použijeme na 1 channelu mod passive*/</span></p>
+                <p><span class="comment">/*Použitím active aktivujeme protokol LACP. Pokud máme více SW do kruhu použijeme na 1 channelu mod passive*/</span></p>
                 <p><span class="comment">/*Toto uděláme na obou SW (Na obou může být různý range). Nezapomeň na <a href="#trunk">Trunk</a>*/</span></p>
             </div>
         </section>
