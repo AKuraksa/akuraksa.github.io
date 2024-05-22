@@ -36,6 +36,10 @@ dl,
 dd {
     margin: 0;
 }
+p{
+    line-height: 25px;
+    color: var(--color-white);
+}
 
 header {
     padding: 2vh 2vw;
@@ -58,7 +62,6 @@ main {
 
 .code{
     background-color: var(--color-black);
-    color: var(--color-white);
     margin: 10px 0;
     padding: 30px 20px;
 }
@@ -74,6 +77,15 @@ main {
         font-weight: bold;
         float: right;
     }
+
+.code-show{
+    background-color: var(--color-black);
+    margin: 20px;
+    padding: 30px 20px;
+}
+.code-show .command{
+    color: rgb(255, 169, 70);
+}
 
 footer {
     display: flex;

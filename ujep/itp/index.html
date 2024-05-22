@@ -113,6 +113,14 @@
             <p><span class="header">R(config)# </span><span class="command">ip nat inside source list [název] interface gigabitEthernet0/0 overload </span></p>
         </div>
         <div class="text">
+            <details>
+                <summary>Příklad</summary>
+                <div class="code-show">
+                    <p><span class="header">R(config)# </span><span class="command">ip access-list standard NAT </span></p>
+                    <p><span class="header">R(config-std-nacl)# </span><span class="command">permit 192.168.0.0 0.0.0.255 </span></p> <br>
+                    <p><span class="header">R(config)# </span><span class="command">ip nat inside source list NAT interface g/0 overload </span></p>
+                </div>
+            </details>
             <h1>Show</h1>
         </div>
         <div class="code">
