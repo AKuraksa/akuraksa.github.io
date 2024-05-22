@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cheatsheet</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,16 +12,124 @@
     </header>
     <main>
         <div class="text">
-            <p>Toto je titulní strana</p>
-            <h2>Základní příkazy</h2>
+            <h1>Základní nastavení</h1>
         </div>
         <div class="code">
-            <p><span class="header">Router></span> <span class="command">enable</span> <span class="comment">//Komentář</span></p>
-            <p><span class="header">Router#</span> <span class="command">config terminal</span></p>
-            <p><span class="header">Router(config)#</span> <span class="command">hostname R</span></p>
-            <p><span class="header">Router(config)#</span> <span class="command">hostname R</span></p>
-            <p><span class="header">R(config)#</span> <span class="command">line console 0</span></p>
-            <p><span class="header">R(line)#</span> <span class="command">logging synchronous</span> <span class="comment">//Odřádkovávání</span></p>
+            <p><span class="header">Router> </span><span class="command">enable </span><span class="comment">/*Komentář*/</span><span class="sc">en </span></p>
+            <p><span class="header">Router# </span><span class="command">config terminal </span><span class="sc">conf t </span></p>
+            <p><span class="header">Router(config)# </span><span class="command">hostname R </span><span class="sc">h R </span></p>
+            <p><span class="header">R(config)# </span><span class="command">line console 0 </span><span class="sc">lin c 0 </span></p>
+            <p><span class="header">R(config-line)# </span><span class="command">logging synchronous </span><span class="comment">/*Odřádkovávání*/</span><span class="sc">logg s </span></p> <br>
+            <p><span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište <span class="command">no </span>*/</span></p>
+            <p><span class="header">R(config)# </span><span class="command">no hostname R</span><span class="sc">no h R </span></p>
+            <p><span class="header">Router(config)# </span></p>
+        </div>
+        <div class="text">
+            <h2>Interface</h2>
+        </div>
+        <div class="code">
+            <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0 </span><span class="sc">int g0/0/0 </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">ip address [adresa] [maska] </span><span class="sc">ip add </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">no shutdown </span><span class="comment">//Zapnutí</span><span class="sc">no shu </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">shutdown </span><span class="comment">//Vypnutí</span><span class="sc">shu </span></p>
+        </div>
+        <div class="text">
+            <h2>DHCP</h2>
+        </div>
+        <div class="code">
+            <p><span class="header">R(config)# </span><span class="command">ip dhcp pool [název] </span></p>
+            <p><span class="header">R(dhcp-config)# </span><span class="command">network [adresa sítě] [maska] </span></p>
+            <p><span class="header">R(dhcp-config)# </span><span class="command">default-router [adresa] </span></p>
+            <p><span class="header">R(dhcp-config)# </span><span class="command">dns-server [adresa] </span></p> <br>
+            <p><span class="header">R(config)# </span><span class="command">ip dhcp excluded-address [adresa] </span><span class="comment">/*Vyloučená adresa*/</span></p>
+            <p><span class="comment">/*Pokud máme adresu, kterou nechceme aby DHCP někomu dala jednoduše pro ní uděláme vyjímku*/</span></p>
+        </div>
+        <div class="text">
+            <h2>VLAN</h2>
+        </div>
+        <div class="code">
+            <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0 </span><span class="sc">int g0/0/0 </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">no shutdown </span><span class="sc">no shu </span></p> <br>
+            <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0.[X] </span><span class="sc">int g0/0/0.[X] </span></p>
+            <p><span class="header">R(config-subif)# </span><span class="command">encapsulation dot1Q [X] </span></p>
+            <p><span class="header">R(config-subif)# </span><span class="command">ip address [adresa] [maska] </span><span class="sc">ip add </span></p>
+            <p><span class="header">R(config-subif)# </span><span class="command">ip helper-address [adresa] </span><span class="comment">/*Nastavujeme ve chvíly, kdy máme hotový DHCP na hlavním routeru*/</span></p>
+        </div>
+        <div class="text">
+            <h1>Routování</h1>
+        </div>
+        <div class="code">
+            <h2>RIPv2</h2>
+            <p><span class="header">R(config)# </span><span class="command">router rip </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">version 2 </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">network [adresa sítě] [maska] </span></p>
+            <h2>EIGRP</h2>
+            <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">no auto-summary </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">network [adresa sítě] [maska] </span></p>
+            <h2>OSPF</h2>
+            <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">default-information originate </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">network [adresa sítě] [wildcard] area 0 </span></p>
+        </div>
+        <div class="text">
+            <h2>Redistribuce</h2>
+        </div>
+        <div class="code">
+            <h2>RIPv2</h2>
+            <p><span class="comment">/*EIGRP*/</span></p>
+            <p><span class="header">R(config)# </span><span class="command">router rip </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">redistribute eigrp [id] metric 5 </span></p>
+            <p><span class="comment">/*OSPF*/</span></p>
+            <p><span class="header">R(config)# </span><span class="command">router rip </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">redistribute ospf [id] metric 3 </span></p>
+            <h2>EIGRP</h2>
+            <h3>RIPv2</h3>
+            <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">redistribute rip metric 10000 10 255 100 1000 </span></p>
+            <h3>OSPF</h3>
+            <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">redistribute ospf [id] metric 10000 100 255 1 1500 </span></p>
+            <h2>OSPF</h2>
+            <h3>RIPv2</h3>
+            <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">redistribute rip subnets </span></p>
+            <h3>RIPv2</h3>
+            <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
+            <p><span class="header">R(config-router)# </span><span class="command">redistribute eigrp [id] subnets </span></p>
+        </div>
+        <div class="text">
+            <h1>NAT</h1>
+            <img src="pic/nat.png" alt="NAT" height="250px">
+        </div>
+        <div class="code">
+            <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/1 </span><span class="sc">int g0/1 </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">ip nat inside </span></p> <br>
+            <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0 </span><span class="sc">int g0/0 </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">ip nat outside </span></p>
+            <p><span class="header">R(config-if)# </span><span class="command">ip address dchp </span><span class="sc">ip add </span></p> <br>
+            <p><span class="header">R(config)# </span><span class="command">ip access-list standard [název] </span></p>
+            <p><span class="header">R(config-std-nacl)# </span><span class="command">permit [adresa sítě] [wildcard] </span></p> <br>
+            <p><span class="header">R(config)# </span><span class="command">ip nat inside source list [název] interface gigabitEthernet0/0 overload </span></p>
+        </div>
+        <div class="text">
+            <h1>Show</h1>
+        </div>
+        <div class="code">
+            <p><span class="header">Router# </span><span class="command">show ip interface brief </span><span class="sc">sh ip int brief </span></p>
+            <p><span class="header">Router# </span><span class="command">show interfaces </span></p>
+            <p><span class="header">Router# </span><span class="command">show interface gigabitEthernet0/0/0 </span><span class="sc">sh int g0/0/0 </span></p>
+            <p><span class="header">Router# </span><span class="command">show running-config </span><span class="sc">sh run </span></p>
+            <p><span class="header">Router# </span><span class="command">show ip dhcp binding </span></p>
+            <p><span class="header">Router# </span><span class="command">show etherchannel summary </span></p>
+            <p><span class="header">Router# </span><span class="command">show standby </span></p>
+        </div>
+        <div class="text">
+            <h1>Tovární nastavení</h1>
+        </div>
+        <div class="code">
+            <p><span class="header">Router# </span><span class="command">write erase </span></p>
+            <p><span class="header">Router# </span><span class="command">reload </span></p>
         </div>
     </main>
     <footer>

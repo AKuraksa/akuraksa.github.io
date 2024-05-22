@@ -16,11 +16,12 @@
 body {
     width: 100vw;
     min-height: 100vh;
-    font-size: 20px;
+    font-size: 16px;
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
-    background-color: gray;
+    background-color: rgb(50, 50, 50);
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 body,
@@ -37,14 +38,14 @@ dd {
 }
 
 header {
-    padding: 20px 20px;
+    padding: 2vh 2vw;
     display: flex;
     justify-content: space-between;
     background-color: white;
 }
 
 main {
-    padding: 30px 40px;
+    padding: 2vh 5vw;
     box-shadow: var(--box-shadow);
     position: relative;
     transition: all 0.3s ease;
@@ -62,11 +63,16 @@ main {
     padding: 30px 20px;
 }
     .code .command{
-        color: red;
+        color: rgb(255, 169, 70);
         font-weight: bold;
     }
     .code .comment{
-        color: green;
+        color: rgb(60, 217, 60);
+    }
+    .code .sc{
+        color: rgb(255, 39, 39);
+        font-weight: bold;
+        float: right;
     }
 
 footer {
