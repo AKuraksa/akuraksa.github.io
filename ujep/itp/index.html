@@ -18,8 +18,7 @@
                 <h1>Základní nastavení</h1>
             </div>
             <div class="code">
-                <p><span class="header">Router> </span><span class="command">enable </span><span
-                        class="comment">/*Komentář*/</span><span class="sc">en </span></p>
+                <p><span class="header">Router> </span><span class="command">enable </span><span class="sc">en </span></p>
                 <p><span class="header">Router# </span><span class="command">config terminal </span><span
                         class="sc">conf t </span></p>
                 <p><span class="header">Router(config)# </span><span class="command">hostname R </span><span
@@ -27,7 +26,7 @@
                 <p><span class="header">R(config)# </span><span class="command">line console 0 </span><span
                         class="sc">lin c 0 </span></p>
                 <p><span class="header">R(config-line)# </span><span class="command">logging synchronous </span><span
-                        class="comment">/*Odřádkovávání*/</span><span class="sc">logg s </span></p> <br>
+                        class="comment">/*Odřádkovávání. Dost užitečné zapnout. Řeší když uprostřed psaní příkazu vyskočí zpráva od routeru */</span><span class="sc">logg s </span></p> <br>
                 <p><span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište <span
                             class="command">no </span>*/</span></p>
                 <p><span class="header">R(config)# </span><span class="command">no hostname R</span><span class="sc">no
@@ -85,15 +84,6 @@
                 <p><span class="header">R(config-subif)# </span><span class="command">ip helper-address [adresa]
                     </span><span class="comment">/*Nastavujeme ve chvíly, kdy máme hotový DHCP na hlavním
                         routeru*/</span><span class="sc">ip help</span></p>
-                <details>
-                    <summary>Příklad</summary>
-                    <div class="code-show">
-                        <img src="pic/IP-help.png" alt="Network">
-                        <p><span class="comment">/*Nastavuji na falešném DHCP*/</span></p>
-                        <p><span class="header">R(config-subif)# </span><span class="command">ip help 192.168.0.1</span></p>
-                    </div>
-                    
-                </details>
                 <h3>Trunk</h3>
                 <p><span class="comment">/*Nastavujeme na portu, který jde do routeru. Důvod: Aby pustil všechny VLANy
                         ke SWITCHi.*/</span></p>
@@ -116,6 +106,48 @@
                 <p><span class="header">SW(config-if) </span><span class="command">switchport access vlan [X]
                     </span><span class="sc">sw a v</span></p>
             </div>
+            <details>
+                <summary>Příklad</summary>
+                <div class="code-show">
+                    <img src="pic/IP-help.png" alt="Network">
+                    <p><span class="comment">/*Nastavuji na falešném DHCP*/</span></p>
+                    <p><span class="header">R(config-subif)# </span><span class="command">ip help 192.168.0.1</span></p>
+                </div>
+            </details>
+        </section>
+        <section>
+            <div class="text">
+                <h2>HSRP</h2>
+                <p>Hot standby routing protocol</p>
+                
+            </div>
+            <div class="code">
+                <p><span class="header">R1(config)# </span><span class="command">interface gigabitEthernet0/0
+                    </span><span class="sc">int g0/0 </span></p>
+                <p><span class="header">R1(config-if)# </span><span class="command">standby 1 ip [adresa]
+                    </span><span class="sc">st 1 ip </span></p>
+                <p><span class="header">R1(config-if)# </span><span class="command">standby 1 priority [0-255] </span><span class="sc">st 1 pri </span></p> <br>
+                <p><span class="header">R2(config)# </span><span class="command">interface gigabitEthernet0/0
+                </span><span class="sc">int g0/0 </span></p>
+            <p><span class="header">R2(config-if)# </span><span class="command">standby 1 ip [adresa]
+                </span><span class="sc">st 1 ip </span></p>
+            <p><span class="header">R2(config-if)# </span><span class="command">standby 1 priority [0-255] </span><span class="sc">st 1 pri </span></p>
+            </div>
+            <details>
+                <summary>Příklad</summary>
+                <div class="code-show">
+                    <img src="pic/hsrp.png" alt="network-hsrp" srcset="">
+                    <p><span class="header">R1(config)# </span><span class="command">int g0/0
+                    </span></p>
+                <p><span class="header">R1(config-if)# </span><span class="command">st 1 ip 192.168.1.1</p>
+                <p><span class="header">R1(config-if)# </span><span class="command">st 1 p 200 </span></p> <br>
+                <p><span class="header">R2(config)# </span><span class="command">int g0/0
+                </span><span class="sc">int g0/0 </span></p>
+            <p><span class="header">R2(config-if)# </span><span class="command">st 1 ip 192.168.1.1
+                </span></p>
+            <p><span class="header">R2(config-if)# </span><span class="command">st 1 pri 100 </span></p>
+                </div>
+            </details>
         </section>
         <section>
             <div class="text">

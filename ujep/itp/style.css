@@ -81,10 +81,6 @@ summary {
     font-weight: bold;
 }
 
-.code .comment {
-    color: rgb(60, 217, 60);
-}
-
 .code .sc {
     color: rgb(255, 39, 39);
     font-weight: bold;
@@ -103,6 +99,10 @@ summary {
     font-weight: normal;
 }
 
+.comment {
+    color: rgb(60, 217, 60);
+}
+
 footer {
     display: flex;
     justify-content: space-between;
@@ -114,6 +114,4 @@ footer {
     top: 100%;
 }
 
-img{
-    
-}
+img {}
