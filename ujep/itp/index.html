@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheatsheet</title>
+    <title>CISCO</title>
     <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
     </header>
     <main>
         <details>
-            <summary>Vysvětlivky</summary>
+            <summary>Vysvětlivky závorek</summary>
             <div class="code-show">
                 <p>adresa → Pokud maska x.x.x.x/24 Pak adresa = x.x.x.1-254</p>
                 <p>adresa sítě → x.x.x.x/24 Pak adresa sítě = x.x.x.0</p>
@@ -95,7 +95,7 @@
                 <p><span class="header">R(config-subif)# </span><span class="command">ip helper-address [adresa]
                     </span><span class="comment">/*Nastavujeme ve chvíly, kdy máme hotový DHCP na hlavním
                         routeru*/</span><span class="sc">ip help</span></p>
-                <h3>Trunk</h3>
+                <h3 id="trunk">Trunk</h3>
                 <p><span class="comment">/*Nastavujeme na portu, který jde do routeru. Důvod: Aby pustil všechny VLANy
                         ke SWITCHi.*/</span></p>
                 <p><span class="header">SW(config) </span><span class="command">int f0/24 </span><span
@@ -246,6 +246,16 @@
                             interface g/0 overload </span></p>
                 </div>
             </details>
+        </section>
+        <section>
+            <div class="text">
+                <h1>Etherchannel</h1>
+            </div>
+            <div class="code">
+                <p><span class="header">SW(config)# </span><span class="command">interface range f0/21-24</span><span class="comment">/*Rozsah potrů, u kterých chceme stejnou komunikaci*/</span><span class="sc">int range f0/21-24</span></p>
+                <p><span class="header">SW(config-if-range)# </span><span class="command">channel-group 1 mode active</span></p>
+                <p><span class="comment">/*Toto uděláme na obou SW (Na obou může být různý range). Nezapomeň na <a href="#trunk">Trunk</a>*/</span></p>
+            </div>
         </section>
         <section>
             <div class="text">

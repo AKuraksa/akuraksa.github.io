@@ -48,6 +48,21 @@ p {
     line-height: 25px;
 }
 
+a{
+    color:rgb(255, 39, 183);
+    font-weight: bolder;
+}
+
+a:visited{
+    color:rgb(255, 39, 183);
+    font-weight: bolder;
+}
+a:hover{
+    color: white;
+    text-decoration: underline;
+    transition: 0.1s;
+}
+
 header {
     padding: 2vh 2vw;
     display: flex;
@@ -113,5 +128,3 @@ footer {
     position: sticky;
     top: 100%;
 }
-
-img {}
