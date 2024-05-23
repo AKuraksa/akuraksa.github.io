@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs-cz">
 
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,21 @@
     <title>CISCO</title>
     <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
+    <label class="switch">
+
+        <input type="checkbox" id="version-switch">
+        <span class="slider round"></span>
+
+    </label>
     <header>
         <h1>CISCO - Cheatsheet</h1>
+        <nav>
+
+        </nav>
     </header>
     <main>
         <details>
@@ -31,21 +41,36 @@
                 <h1>Základní nastavení</h1>
             </div>
             <div class="code">
-                <p><span class="header">Router> </span><span class="command">enable </span><span class="sc">en </span>
+                <p> <span class="header">Router> </span>
+                    <span class="command ver full">enable </span>
+                    <span class="command sc ver short">en </span>
                 </p>
-                <p><span class="header">Router# </span><span class="command">config terminal </span><span
-                        class="sc">conf t </span></p>
-                <p><span class="header">Router(config)# </span><span class="command">hostname R </span><span
-                        class="sc">h R </span></p>
-                <p><span class="header">R(config)# </span><span class="command">line console 0 </span><span
-                        class="sc">lin c 0 </span></p>
-                <p><span class="header">R(config-line)# </span><span class="command">logging synchronous </span><span
-                        class="comment">/*Odřádkovávání. Dost užitečné zapnout. Řeší když uprostřed psaní příkazu
-                        vyskočí zpráva od routeru */</span><span class="sc">logg s </span></p> <br>
-                <p><span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište <span
-                            class="command">no </span>*/</span></p>
-                <p><span class="header">R(config)# </span><span class="command">no hostname R</span><span class="sc">no
-                        h R </span></p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">config terminal </span>
+                    <span class="command sc ver short">conf t </span>
+                </p>
+                <p> <span class="header">Router(config)# </span>
+                    <span class="command ver full">hostname R </span>
+                    <span class="command sc ver short">h R </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command ver full">line console 0 </span>
+                    <span class="command sc ver short">lin c 0 </span>
+                </p>
+                <p> <span class="header">R(config-line)# </span>
+                    <span class="command ver full">logging synchronous </span>
+                    <span class="command sc ver short">logg s </span>
+                    <span class="comment">/*Odřádkovávání. Dost užitečné zapnout. Řeší když uprostřed psaní příkazu
+                        vyskočí zpráva od routeru */</span>
+                </p>
+                <br>
+                <p> <span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište
+                        <span class="command">no </span>*/</span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command ver full">no hostname R</span>
+                    <span class="command sc ver short">no h R </span>
+                </p>
                 <p><span class="header">Router(config)# </span></p>
             </div>
         </section>
@@ -54,14 +79,14 @@
                 <h2>Interface</h2>
             </div>
             <div class="code">
-                <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0
-                    </span><span class="sc">int g0/0/0 </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">ip address [adresa] [maska]
-                    </span><span class="sc">ip add </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">no shutdown </span><span
-                        class="comment">//Zapnutí</span><span class="sc">no shu </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">shutdown </span><span
-                        class="comment">//Vypnutí</span><span class="sc">shu </span></p>
+                <p><span class="header">R(config)# </span><span class="command ver full">interface
+                        gigabitEthernet0/0/0</span><span class="command sc ver short">int g0/0/0 </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">ip address [adresa]
+                        [maska]</span><span class="command sc ver short">ip add [adresa] [maska] </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">no shutdown </span><span
+                        class="command sc ver short">no shu </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">shutdown </span><span
+                        class="command sc ver short">shu </span></p>
             </div>
         </section>
         <section>
@@ -81,8 +106,9 @@
                         uděláme vyjímku*/</span></p> <br>
                 <p><span class="comment">/*Pokud chci DHCP na jiném routeru můžu odkazovat na DHCP pool na hlavním
                         routeru*/</span></p>
-                <p><span class="header">R(config-subif)# </span><span class="command">ip helper-address [adresa]
-                    </span><span class="sc">ip help</span></p>
+                <p><span class="header">R(config-subif)# </span><span class="command ver full">ip helper-address
+                        [adresa]
+                    </span><span class="command sc ver short">ip help [adresa]</span></p>
                 <p><span class="comment">/*Jaký pool se přiřadí rozhoduje adresa na interfacu*/</span></p>
 
             </div>
@@ -90,18 +116,31 @@
                 <summary>Příklad</summary>
                 <div class="code-show">
                     <img src="pic/IP-help.png" alt="Network">
-                    <p><span class="header">R1(config)# </span><span class="command">ip dhcp pool dhcp </span></p>
-                    <p><span class="header">R1(dhcp-config)# </span><span class="command">network 192.168.1.0
-                            255.255.255.0
-                        </span></p>
-                    <p><span class="header">R1(dhcp-config)# </span><span class="command">default-router 192.168.1.1
-                        </span></p>
-                    <p><span class="header">R1(dhcp-config)# </span><span class="command">dns-server 8.8.8.8 </span></p>
+                    <p> <span class="header">R1(config)# </span>
+                        <span class="command">ip dhcp pool dhcp </span>
+                    </p>
+                    <p> <span class="header">R1(dhcp-config)# </span>
+                        <span class="command">network 192.168.1.0 255.255.255.0 </span>
+                    </p>
+                    <p> <span class="header">R1(dhcp-config)# </span>
+                        <span class="command">default-router 192.168.1.1 </span>
+                    </p>
+                    <p> <span class="header">R1(dhcp-config)# </span>
+                        <span class="command">dns-server 8.8.8.8 </span>
+                    </p>
                     <br>
-                    <p><span class="header">R2(config)# </span><span class="command">int g0/0/0 </span></p>
-                    <p><span class="header">R2(config-if)# </span><span class="command">ip add 192.168.1.1
-                            255.255.255.0</span></p>
-                    <p><span class="header">R2(config-if)# </span><span class="command">ip help 192.168.0.1</span></p>
+                    <p> <span class="header">R2(config)# </span>
+                        <span class="command ver full">interface gigabitEthernet0/0/0 </span>
+                        <span class="command ver short">int g0/0/0 </span>
+                    </p>
+                    <p> <span class="header">R2(config-if)# </span>
+                        <span class="command ver full">ip address 192.168.1.1 255.255.255.0</span>
+                        <span class="command ver short">ip add 192.168.1.1 255.255.255.0</span>
+                    </p>
+                    <p> <span class="header">R2(config-if)# </span>
+                        <span class="command ver full">ip helper-address 192.168.0.1</span>
+                        <span class="command ver short">ip help 192.168.0.1</span>
+                    </p>
                 </div>
             </details>
         </section>
@@ -110,40 +149,41 @@
                 <h2>VLAN</h2>
             </div>
             <div class="code">
-                <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0
-                    </span><span class="sc">int g0/0/0 </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">no shutdown </span><span
-                        class="sc">no shu </span></p> <br>
-                <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0.[X]
-                    </span><span class="sc">int g0/0/0.[X] </span></p>
-                <p><span class="header">R(config-subif)# </span><span class="command">encapsulation dot1Q [X]
-                    </span><span class="sc">en d [X]</span></p>
-                <p><span class="header">R(config-subif)# </span><span class="command">ip address [adresa] [maska]
-                    </span><span class="sc">ip add </span></p>
-                <p><span class="header">R(config-subif)# </span><span class="command">ip helper-address [adresa]
-                    </span><span class="comment">/*Nastavujeme ve chvíly, kdy máme hotový DHCP na hlavním
-                        routeru*/</span><span class="sc">ip help</span></p>
+                <p><span class="header">R(config)# </span><span class="command ver full">interface gigabitEthernet0/0/0
+                    </span><span class="command sc ver short">int g0/0/0 </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">no shutdown </span><span
+                        class="command sc ver short">no shu </span></p> <br>
+                <p><span class="header">R(config)# </span><span class="command ver full">interface
+                        gigabitEthernet0/0/0.[X]
+                    </span><span class="command sc ver short">int g0/0/0.[X] </span></p>
+                <p><span class="header">R(config-subif)# </span><span class="command ver full">encapsulation dot1Q [X]
+                    </span><span class="command sc ver short">en d [X]</span></p>
+                <p><span class="header">R(config-subif)# </span><span class="command ver full">ip address [adresa]
+                        [maska]
+                    </span><span class="command sc ver short">ip add </span></p>
+                <p><span class="header">R(config-subif)# </span><span class="command ver full">ip helper-address
+                        [adresa] </span><span class="command sc ver short">ip help </span><span
+                        class="comment">/*Nastavujeme ve chvíly, kdy máme hotový DHCP na hlavním
+                        routeru*/</span></p>
                 <h3 id="trunk">Trunk</h3>
                 <p><span class="comment">/*Nastavujeme na portu, který jde do routeru. Důvod: Aby pustil všechny VLANy
                         ke SWITCHi.*/</span></p>
-                <p><span class="header">SW(config) </span><span class="command">int f0/24 </span><span
-                        class="sc"></span></p>
-                <p><span class="header">SW(config-if) </span><span class="command">switchport mode trunk </span><span
-                        class="sc">sw m t</span></p>
+                <p><span class="header">SW(config) </span><span class="command">int f0/24 </span></p>
+                <p><span class="header">SW(config-if) </span><span class="command ver full">switchport mode trunk
+                    </span><span class="command sc ver short">sw m t</span></p>
                 <h3>Do PC</h3>
                 <p><span class="comment">/*1. Založíme vlanu na Switchi</span></p>
                 <p><span class="comment">Jediný co je nutný dodržet je že "číslo vlany = číslo encapsulace". Jedině
                         takto pozná switch pro jakou vlanu je packet*/</span></p>
-                <p><span class="header">SW(config) </span><span class="command">vlan [X] </span><span class="sc"></span>
-                </p>
+                <p><span class="header">SW(config) </span><span class="command">vlan [X] </span></p>
                 <p><span class="comment">/*2. Vlanu přiřadíme na interface. Tím určíme že počítač připojený v tomto
                         interfacu bude patřit do určité VLANy. To je vše :)*/</span></p>
                 <p><span class="header">SW(config-if) </span><span class="command">int f0/1</span><span
                         class="sc"></span></p>
-                <p><span class="header">SW(config-if) </span><span class="command">switchport mode access </span><span
-                        class="sc">sw m a</span></p>
-                <p><span class="header">SW(config-if) </span><span class="command">switchport access vlan [X]
-                    </span><span class="sc">sw a v</span></p>
+                <p><span class="header">SW(config-if) </span><span class="command ver full">switchport mode access
+                    </span><span class="command sc ver short">sw m a</span></p>
+                <p><span class="header">SW(config-if) </span><span class="command ver full">switchport access vlan [X]
+                    </span><span class="command sc ver short">sw a v</span></p>
             </div>
         </section>
         <section>
@@ -153,32 +193,48 @@
 
             </div>
             <div class="code">
-                <p><span class="header">R1(config)# </span><span class="command">interface gigabitEthernet0/0
-                    </span><span class="sc">int g0/0 </span></p>
-                <p><span class="header">R1(config-if)# </span><span class="command">standby 1 ip [adresa]
-                    </span><span class="sc">st 1 ip </span></p>
-                <p><span class="header">R1(config-if)# </span><span class="command">standby 1 priority [0-255]
-                    </span><span class="sc">st 1 pri </span></p> <br>
-                <p><span class="header">R2(config)# </span><span class="command">interface gigabitEthernet0/0
-                    </span><span class="sc">int g0/0 </span></p>
-                <p><span class="header">R2(config-if)# </span><span class="command">standby 1 ip [adresa]
-                    </span><span class="sc">st 1 ip </span></p>
-                <p><span class="header">R2(config-if)# </span><span class="command">standby 1 priority [0-255]
-                    </span><span class="sc">st 1 pri </span></p>
+                <p><span class="header">R1(config)# </span><span class="command ver full">interface gigabitEthernet0/0
+                    </span><span class="command sc ver short">int g0/0 </span></p>
+                <p><span class="header">R1(config-if)# </span><span class="command ver full">standby 1 ip [adresa]
+                    </span><span class="command sc ver short">st 1 ip [adresa] </span></p>
+                <p><span class="header">R1(config-if)# </span><span class="command ver full">standby 1 priority [0-255]
+                    </span><span class="command sc ver short">st 1 pri [0-255] </span></p> <br>
+                <p><span class="header">R2(config)# </span><span class="command ver full">interface gigabitEthernet0/0
+                    </span><span class="command sc ver short">int g0/0 </span></p>
+                <p><span class="header">R2(config-if)# </span><span class="command ver full">standby 1 ip [adresa]
+                    </span><span class="command sc ver short">st 1 ip [adresa] </span></p>
+                <p><span class="header">R2(config-if)# </span><span class="command ver full">standby 1 priority [0-255]
+                    </span><span class="command sc ver short">st 1 pri [0-255] </span></p>
             </div>
             <details>
                 <summary>Příklad</summary>
                 <div class="code-show">
                     <img src="pic/hsrp.png" alt="network-hsrp" srcset="">
-                    <p><span class="header">R1(config)# </span><span class="command">int g0/0
-                        </span></p>
-                    <p><span class="header">R1(config-if)# </span><span class="command">st 1 ip 192.168.1.1</p>
-                    <p><span class="header">R1(config-if)# </span><span class="command">st 1 p 200 </span></p> <br>
-                    <p><span class="header">R2(config)# </span><span class="command">int g0/0
-                        </span><span class="sc">int g0/0 </span></p>
-                    <p><span class="header">R2(config-if)# </span><span class="command">st 1 ip 192.168.1.1
-                        </span></p>
-                    <p><span class="header">R2(config-if)# </span><span class="command">st 1 pri 100 </span></p>
+                    <p> <span class="header">R1(config)# </span>
+                        <span class="command ver full">interface gigabitEthernet0/0 </span>
+                        <span class="command ver short">int g0/0 </span>
+                    </p>
+                    <p> <span class="header">R1(config-if)# </span>
+                        <span class="command ver full">standby 1 ip 192.168.1.1 </span>
+                        <span class="command ver short">st 1 ip 192.168.1.1 </span>
+                    </p>
+                    <p> <span class="header">R1(config-if)# </span>
+                        <span class="command ver full">standby 1 priority 200 </span>
+                        <span class="command ver short">st 1 pri 200 </span>
+                    </p>
+                    <br>
+                    <p> <span class="header">R2(config)# </span>
+                        <span class="command ver full">interface gigabitEthernet0/0 </span>
+                        <span class="command ver short">int g0/0 </span>
+                    </p>
+                    <p> <span class="header">R2(config-if)# </span>
+                        <span class="command ver full">standby 1 ip 192.168.1.1 </span>
+                        <span class="command ver short">st 1 ip 192.168.1.1</span>
+                    </p>
+                    <p> <span class="header">R2(config-if)# </span>
+                        <span class="command ver full">standby 1 priority 100 </span>
+                        <span class="command ver short">st 1 pri 100 </span>
+                    </p>
                 </div>
             </details>
         </section>
@@ -246,20 +302,36 @@
                 <img src="pic/nat.png" alt="NAT">
             </div>
             <div class="code">
-                <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/1
-                    </span><span class="sc">int g0/1 </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">ip nat inside </span></p> <br>
-                <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0
-                    </span><span class="sc">int g0/0 </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">ip nat outside </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">ip address dchp </span><span
-                        class="sc">ip add </span></p> <br>
-                <p><span class="header">R(config)# </span><span class="command">ip access-list standard [název] </span>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command ver full">interface gigabitEthernet0/1 </span>
+                    <span class="command sc ver short">int g0/1 </span>
                 </p>
-                <p><span class="header">R(config-std-nacl)# </span><span class="command">permit [adresa sítě] [wildcard]
-                    </span></p> <br>
-                <p><span class="header">R(config)# </span><span class="command">ip nat inside source list [název]
-                        interface gigabitEthernet0/0 overload </span></p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">ip nat inside </span>
+                </p>
+                <br>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command ver full">interface gigabitEthernet0/0 </span>
+                    <span class="command sc ver short">int g0/0 </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">ip nat outside </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command ver full">ip address dchp </span>
+                    <span class="command sc ver short">ip add dchp</span>
+                </p>
+                <br>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip access-list standard [název] </span>
+                </p>
+                <p> <span class="header">R(config-std-nacl)# </span>
+                    <span class="command">permit [adresa sítě] [wildcard] </span>
+                </p>
+                <br>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip nat inside source list [název] interface g0/0 overload </span>
+                </p>
             </div>
             <details>
                 <summary>Příklad</summary>
@@ -278,15 +350,21 @@
                 <h1>Etherchannel</h1>
             </div>
             <div class="code">
-                <p><span class="header">SW(config)# </span><span class="command">interface range f0/21-24</span><span
-                        class="comment">/*Rozsah potrů, u kterých chceme stejnou komunikaci*/</span><span class="sc">int
-                        r f0/21-24</span></p>
-                <p><span class="header">SW(config-if-range)# </span><span class="command">channel-group 1 mode active
-                    </span><span class="sc">channel-g 1 m ac</span></p>
+                <p> <span class="header">SW(config)# </span>
+                    <span class="command ver full">interface range fastEthernet0/21-24</span>
+                    <span class="command sc ver short">int r f0/21-24</span>
+                    <span class="comment">/*Rozsah potrů, u kterých chceme stejnou komunikaci*/</span>
+                </p>
+                <p> <span class="header">SW(config-if-range)# </span>
+                    <span class="command ver full">channel-group 1 mode active </span>
+                    <span class="command sc ver short">channel-g 1 m ac</span>
+                </p>
                 <p><span class="comment">/*Použitím active aktivujeme protokol LACP. Pokud máme více SW do kruhu
-                        použijeme na 1 channelu mod passive*/</span></p>
-                <p><span class="comment">/*Toto uděláme na obou SW (Na obou může být různý range). Nezapomeň na <a
-                            href="#trunk">Trunk</a>*/</span></p>
+                        použijeme na 1 channelu mod passive*/</span>
+                </p>
+                <p><span class="comment">/*Toto uděláme na obou SW (Na obou může být různý range). Nezapomeň na
+                    <a href="#trunk">Trunk</a>*/</span>
+                </p>
             </div>
         </section>
         <section>
@@ -294,14 +372,22 @@
                 <h1>Show</h1>
             </div>
             <div class="code">
-                <p><span class="header">Router# </span><span class="command">show ip interface brief </span><span
-                        class="sc">sh ip int brief </span></p>
-                <p><span class="header">Router# </span><span class="command">show interface </span><span class="sc">sh
-                        int</span></p>
-                <p><span class="header">Router# </span><span class="command">show interface gigabitEthernet0/0/0
-                    </span><span class="sc">sh int g0/0/0 </span></p>
-                <p><span class="header">Router# </span><span class="command">show running-config </span><span
-                        class="sc">sh run </span></p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show ip interface brief </span>
+                    <span class="command sc ver short">sh ip int brief </span>
+                </p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show interface </span>
+                    <span class="command sc ver short">sh int</span>
+                </p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show interface gigabitEthernet0/0/0 </span>
+                    <span class="command sc ver short">sh int g0/0/0 </span>
+                </p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show running-config </span>
+                    <span class="command sc ver short">sh run </span>
+                </p>
                 <p><span class="header">Router# </span><span class="command">show ip dhcp binding </span></p>
                 <p><span class="header">Router# </span><span class="command">show etherchannel summary </span></p>
                 <p><span class="header">Router# </span><span class="command">show standby </span></p>
@@ -314,6 +400,21 @@
             <div class="code">
                 <p><span class="header">Router# </span><span class="command">write erase </span></p>
                 <p><span class="header">Router# </span><span class="command">reload </span></p>
+            </div>
+        </section>
+        <section>
+            <div class="text">
+                <h1>Seznam co přidat</h1>
+                <ul>
+                    <li>ACL</li>
+                    <li>SSH/TELNET</li>
+                    <li>MAC filtering</li>
+                    <li>DNS Server</li>
+                    <li>WAMP server</li>
+                    <li>BVI interface</li>
+                    <li>Loopback</li>
+                    <li>Management VLAN</li>
+                </ul>
             </div>
         </section>
     </main>
