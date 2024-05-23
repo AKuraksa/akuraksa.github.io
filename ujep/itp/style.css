@@ -62,6 +62,10 @@ a:hover{
     transition: 0.1s;
 }
 
+li{
+    margin-left: 30px;
+}
+
 header {
     padding: 2vh 2vw;
     display: flex;
@@ -103,7 +107,7 @@ summary {
 }
 
 .code .sc {
-    color: rgb(255, 39, 39);
+    color: rgb(255, 39, 39)!important;
 }
 
 .code-show {
@@ -134,10 +138,13 @@ footer {
 
 /*SWITCH*/
 .switch {
-    position: relative;
+    z-index: 10;
+    position: fixed;
     display: inline-block;
     width: 60px;
     height: 34px;
+    bottom: 20px;
+    right: 20px;
   }
   
   .switch input { 
@@ -153,7 +160,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -165,17 +172,17 @@ footer {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: #111;
     -webkit-transition: .4s;
     transition: .4s;
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: rgb(255, 39, 39);
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px rgb(255, 39, 39);
   }
   
   input:checked + .slider:before {
