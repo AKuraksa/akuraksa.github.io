@@ -11,11 +11,10 @@
 </head>
 
 <body>
-    <label class="switch">
-
+    <label class="switch tooltip">
         <input type="checkbox" id="version-switch">
         <span class="slider round"></span>
-
+        <span class="tooltiptext">Zkrácené příkazy</span>
     </label>
     <header>
         <h1>CISCO - Cheatsheet</h1>
@@ -369,32 +368,6 @@
         </section>
         <section>
             <div class="text">
-                <h1>Show</h1>
-            </div>
-            <div class="code">
-                <p> <span class="header">Router# </span>
-                    <span class="command ver full">show ip interface brief </span>
-                    <span class="command sc ver short">sh ip int brief </span>
-                </p>
-                <p> <span class="header">Router# </span>
-                    <span class="command ver full">show interface </span>
-                    <span class="command sc ver short">sh int</span>
-                </p>
-                <p> <span class="header">Router# </span>
-                    <span class="command ver full">show interface gigabitEthernet0/0/0 </span>
-                    <span class="command sc ver short">sh int g0/0/0 </span>
-                </p>
-                <p> <span class="header">Router# </span>
-                    <span class="command ver full">show running-config </span>
-                    <span class="command sc ver short">sh run </span>
-                </p>
-                <p><span class="header">Router# </span><span class="command">show ip dhcp binding </span></p>
-                <p><span class="header">Router# </span><span class="command">show etherchannel summary </span></p>
-                <p><span class="header">Router# </span><span class="command">show standby </span></p>
-            </div>
-        </section>
-        <section>
-            <div class="text">
                 <h1>Loopback</h1>
             </div>
             <details>
@@ -427,6 +400,95 @@
                     </p>
                 </div>
             </details>
+        </section>
+        <section>
+            <div class="text">
+                <h1>SSH/TELNET</h1>
+            </div>
+            <details>
+                <summary>Teorie</summary>
+                <p>Jde použít jak pro Router tak i Switch (Pro Switch je ale potřeba přidat adresu pro vlan 1)</p>
+                <details>
+                    <summary>Pro Switch</summary>
+                    <div class="code">
+                        <p> <span class="comment">/*Kód níže + toto*/</span>
+                        </p>
+                        <p> <span class="header">SW(config)# </span>
+                            <span class="command ver full">interface vlan 1 </span>
+                            <span class="command sc ver short">int vlan 1 </span>
+                        </p>
+                        <p> <span class="header">SW(config-if)# </span>
+                            <span class="command ver full">no shutdown </span>
+                            <span class="command sc ver short">no shu </span>
+                        </p>
+                        <p> <span class="header">SW(config)# </span>
+                            <span class="command ver full">ip address [adresa] [maska] </span>
+                            <span class="command sc ver short">ip add [adresa] [maska] </span>
+                        </p>
+                    </div>
+                </details>
+            </details>
+            <div class="code">
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip domain name ujep.local </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">crypto key generate rsa </span>
+                </p>
+                <p> <span class="header">How many bits in the modulus [2048]: </span>
+                    <span class="command">1024 </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip ssh version 2 </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">line vty 0 4 </span>
+                </p>
+                <p> <span class="header">R(config-line)# </span>
+                    <span class="command">transport input all </span>
+                </p>
+                <p> <span class="header">R(config-line)# </span>
+                    <span class="command">login local </span>
+                </p>
+                <p> <span class="header">R(config-line)# </span>
+                    <span class="command">password [heslo] </span>
+                </p>
+                <p> <span class="header">R(config-line)# </span>
+                    <span class="command">exit </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">username [jmeno] password [heslo] </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">enable secret [heslo] </span>
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="text">
+                <h1>Show</h1>
+            </div>
+            <div class="code">
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show ip interface brief </span>
+                    <span class="command sc ver short">sh ip int brief </span>
+                </p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show interface </span>
+                    <span class="command sc ver short">sh int</span>
+                </p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show interface gigabitEthernet0/0/0 </span>
+                    <span class="command sc ver short">sh int g0/0/0 </span>
+                </p>
+                <p> <span class="header">Router# </span>
+                    <span class="command ver full">show running-config </span>
+                    <span class="command sc ver short">sh run </span>
+                </p>
+                <p><span class="header">Router# </span><span class="command">show ip dhcp binding </span></p>
+                <p><span class="header">Router# </span><span class="command">show etherchannel summary </span></p>
+                <p><span class="header">Router# </span><span class="command">show standby </span></p>
+            </div>
         </section>
         <section>
             <div class="text">
