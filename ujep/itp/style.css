@@ -47,22 +47,23 @@ p {
     line-height: 25px;
 }
 
-a{
-    color:rgb(255, 39, 183);
+a {
+    color: rgb(255, 39, 183);
     font-weight: bolder;
 }
 
-a:visited{
-    color:rgb(255, 39, 183);
+a:visited {
+    color: rgb(255, 39, 183);
     font-weight: bolder;
 }
-a:hover{
+
+a:hover {
     color: white;
     text-decoration: underline;
     transition: 0.1s;
 }
 
-li{
+li {
     margin-left: 30px;
 }
 
@@ -95,19 +96,16 @@ summary {
     padding: 20px;
 }
 
-.header{
+.header {
     color: whitesmoke;
     font-style: italic;
 
 }
 
-.code .command {
-    color: white;
-    font-weight: bold;
-}
+
 
 .code .sc {
-    color: rgb(255, 39, 39)!important;
+    color: rgb(255, 39, 39) !important;
 }
 
 .code-show {
@@ -115,6 +113,14 @@ summary {
     margin: 10px 0 0 30px;
     padding: 15px 20px;
     line-height: 15px;
+}
+
+.code-show .command {
+    font-weight: normal !important;
+}
+
+.command {
+    font-weight: bold;
 }
 
 .comment {
@@ -133,8 +139,13 @@ footer {
 }
 
 /*Mutltilang*/
-.full { display: none; }
-.short { display: inline; }
+.full {
+    display: none;
+}
+
+.short {
+    display: inline;
+}
 
 /*SWITCH*/
 .switch {
@@ -145,15 +156,15 @@ footer {
     height: 34px;
     bottom: 20px;
     right: 20px;
-  }
-  
-  .switch input { 
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .slider {
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -163,9 +174,9 @@ footer {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -175,39 +186,41 @@ footer {
     background-color: #111;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
     background-color: rgb(255, 39, 39);
-  }
-  
-  input:focus + .slider {
+}
+
+input:focus+.slider {
     box-shadow: 0 0 1px rgb(255, 39, 39);
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+}
 
-@media (max-width: 720px){
-    body{
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+@media (max-width: 720px) {
+    body {
         font-size: 12px;
     }
+
     p {
         line-height: 15px;
     }
-    img{
+
+    img {
         width: 100%;
     }
 }

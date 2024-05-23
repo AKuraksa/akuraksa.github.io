@@ -395,6 +395,41 @@
         </section>
         <section>
             <div class="text">
+                <h1>Loopback</h1>
+            </div>
+            <details>
+                <summary>Teorie</summary>
+                <p><strong>Polopatě: </strong>Router může mít několik interfaců s několika adresami. V praxi to znamená, že pro každou síť má router nějaké označení (tím myslím adresu), ale žádnou jednotnou, které by určovala že to je zrovna tento konkrétní router. Loopback tento problém řeší. Loopback je virtuální interface a přidáním jedinečné adresy můžeme router "označit".</p>
+                <p><strong>Výhody: </strong>Jelikož je virtuální tak je vždy v provozu a viditelný ze všech interfaců (musí být přidán do routovacího protokolu). V praxi to znamená že pokud se chci připojit pomocí SSH na konkrétní Router nemusím řešit jakou linku (adresu) zadat. Stačí zadat adresu loopbacku a pokud je Router v provozu a je zapojen do minimálně 1 linky tak si síť najde vždy cestu. Tato adresa se dá použít i pro <span class="command">ip helper-address</span>, ale ze začátku to nedoporučuju</p>
+                <p><strong>Použití: </strong>Jako koncové body pro přemostění RSRB a DLSW+</p>
+                <p><strong>Maska: </strong> 255.255.255.255 - Pokud nám stačí 1 adresa pro zařízení</p>
+            </details>
+            <div class="code">
+                <p> <span class="header">R(config)# </span>
+                    <span class="command ver full">interface loopback 1 </span>
+                    <span class="command sc ver short">int loopback 1 </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command ver full">ip address [adresa] [maska] </span>
+                    <span class="command sc ver short">ip add [adresa] [maska] </span>
+                </p>
+            </div>
+            <details>
+                <summary>Příklad</summary>
+                <div class="code-show">
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command ver full">interface loopback 1 </span>
+                        <span class="command sc ver short">int loopback 1 </span>
+                    </p>
+                    <p> <span class="header">R(config-if)# </span>
+                        <span class="command ver full">ip address 192.168.255.1 255.255.255.255 </span>
+                        <span class="command sc ver short">ip add 192.168.255.1 255.255.255.255 </span>
+                    </p>
+                </div>
+            </details>
+        </section>
+        <section>
+            <div class="text">
                 <h1>Tovární nastavení</h1>
             </div>
             <div class="code">
@@ -412,7 +447,6 @@
                     <li>DNS Server</li>
                     <li>WAMP server</li>
                     <li>BVI interface</li>
-                    <li>Loopback</li>
                     <li>Management VLAN</li>
                 </ul>
             </div>
