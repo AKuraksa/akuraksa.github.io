@@ -247,20 +247,36 @@
                 <p><span class="header">R(config-router)# </span><span class="command">version 2 </span></p>
                 <p><span class="header">R(config-router)# </span><span class="command">network [adresa sítě] </span></p>
                 <h2>EIGRP</h2>
-                <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">no auto-summary </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">network [adresa sítě] [wildcard]
-                    </span></p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">router eigrp [id] </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">no auto-summary </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">network [adresa sítě] [wildcard] </span>
+                </p>
                 <h2>OSPF</h2>
-                <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">default-information originate
-                    </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">network [adresa sítě] [wildcard]
-                        area 0 </span></p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">router ospf [id] </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">default-information originate </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">network [adresa sítě] [wildcard] area 0 </span>
+                </p>
             </div>
             <div class="text">
                 <h2>Redistribuce</h2>
             </div>
+            <details>
+                <summary>Teorie</summary>
+                <p>Redistribuce se dělá na jednom Routeru a musíš udělat redistribuci pro oba
+                    routovací protokoly. Tzn pokud máš jednu síť eigrp a druhou ospf tak router, který je mezi
+                    těmito sítěmi musí umět oba routovací protokoly a obě musí mít pravidlo jak překládat
+                    (redistribuovat) pro tu druhou.</p>
+            </details>
             <div class="code">
                 <h2>RIPv2</h2>
                 <p><span class="comment">/*EIGRP*/</span></p>
@@ -277,23 +293,76 @@
                 <p><span class="header">R(config-router)# </span><span class="command">redistribute rip metric 10000 10
                         255 100 1000 </span></p>
                 <p><span class="comment">/*OSPF*/</span></p>
-                <p><span class="header">R(config)# </span><span class="command">router eigrp [id] </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">redistribute ospf [id] metric
-                        10000 100 255 1 1500 </span></p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">router eigrp [id] </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">redistribute ospf [id] metric 10000 100 255 1 1500 </span>
+                </p>
+                <details>
+                    <summary>Metrika</summary>
+                    <ul>
+                        <li>1-4294967295>  Bandwidth metric in Kbits per second</li>
+                        <li>0-4294967295>  EIGRP delay metric, in 10 microsecond units</li>
+                        <li>0-255>  EIGRP reliability metric where 255 is 100% reliable</li>
+                        <li>1-255>  EIGRP Effective bandwidth metric (Loading) where 255 is 100% loaded</li>
+                        <li>1-65535>  EIGRP MTU of the path</li>
+                    </ul>
+                </details>
                 <h2>OSPF</h2>
                 <p><span class="comment">/*RIPv2*/</span></p>
-                <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">redistribute rip subnets </span>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">router ospf [id] </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">redistribute rip subnets </span>
                 </p>
                 <p><span class="comment">/*EIGRP*/</span></p>
-                <p><span class="header">R(config)# </span><span class="command">router ospf [id] </span></p>
-                <p><span class="header">R(config-router)# </span><span class="command">redistribute eigrp [id] subnets
-                    </span></p> <br>
-                <p><span class="comment">/*Redistribuce se dělá na jednom Routeru a musíš udělat redistribuci pro oba
-                        routovací protokoly. Tzn pokud máš jednu síť eigrp a druhou ospf tak router, který je mezi
-                        těmito sítěmi musí umět oba routovací protokoly a obě musí mít pravidlo jak překládat
-                        (redistribuovat) pro tu druhou.*/</span></p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">router ospf [id] </span>
+                </p>
+                <p> <span class="header">R(config-router)# </span>
+                    <span class="command">redistribute eigrp [id] subnets </span>
+                </p>
             </div>
+            <details>
+                <summary>Příklad</summary>
+                <div class="code-show">
+                    <img src="pic/redistribuce.png" alt="network-redistribute">
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command ver full">router ospf 1 </span>
+                        <span class="command sc ver short">r o 1 </span>
+                    </p>
+                    <p> <span class="header">R(config-router)# </span>
+                        <span class="command ver full">default-information originate </span>
+                        <span class="command sc ver short">de o </span>
+                    </p>
+                    <p> <span class="header">R(config-router)# </span>
+                        <span class="command ver full">network 192.168.0.0 0.0.0.255 area 0 </span>
+                        <span class="command sc ver short">net 192.168.0.0 0.0.0.255 a 0 </span>
+                    </p>
+                    <p> <span class="header">R(config-router)# </span>
+                        <span class="command ver full">redistribute eigrp 1 subnets </span>
+                        <span class="command sc ver short">re e 1 s </span>
+                    </p>
+                    <br>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command ver full">router eigrp 1 </span>
+                        <span class="command sc ver short">r e 1 </span>
+                    </p>
+                    <p> <span class="header">R(config-router)# </span>
+                        <span class="command ver full">no auto-summary </span>
+                        <span class="command sc ver short">no a </span>
+                    </p>
+                    <p> <span class="header">R(config-router)# </span>
+                        <span class="command ver full">network 192.168.1.0 0.0.0.255</span>
+                        <span class="command sc ver short">net 192.168.1.0 0.0.0.255 </span>
+                    </p>
+                    <p> <span class="header">R(config-router)# </span>
+                        <span class="command">redistribute ospf 1 metric 10000 100 255 1 1500 </span>
+                    </p>
+                </div>
+            </details>
         </section>
         <section>
             <div class="text">
@@ -466,6 +535,55 @@
         </section>
         <section>
             <div class="text">
+                <h1>ACL (aka: Access List)</h1>
+            </div>
+            <details>
+                <summary>Teorie</summary>
+                <p>Ok. Tohle je o něco zajímavější, ale není to těžký a pokusím se to co nejlépe popsat o co tady jde.</p>
+                <br>
+                <p>Bez ACL může každý host komunikovat libovolně jakýmkoliv jiným hostem (myslím tím PC).</p>
+                <p>Pomocí ACL určíme kdo s kým může komunikovat. Resp v následujících metodách nastevení ACL určíme že každý může komunikovat VLAN, ale té omezíme komunikaci do ostatních (=packet z cizí k nám může dorazit, ale my neodpovíme pokud to máme v ACL zakázaný)</p>
+            </details>
+            <div class="code">
+                <p> <span class="comment">/*Extended ACL metoda*/</span></p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip access-list extended [jméno] </span>
+                </p>
+                <p> <span class="header">R(config-ext-nacl)# </span>
+                    <span class="command">deny ip any [adresa sítě] [wildcard] </span>
+                </p>
+                <p> <span class="header">R(config-ext-nacl)# </span>
+                    <span class="command">permit ip any any </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">interface [port].[X] </span>
+                </p>
+                <p> <span class="header">R(config-subif)# </span>
+                    <span class="command">ip access-group [jmeno] in </span>
+                </p>
+            </div>
+            <div class="code">
+                <p> <span class="comment">/*Extended ACL 2.metoda*/</span></p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">access-list [100-199] deny ip any [adresa sítě] [wildcard] </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">access-list [100-199] permit ip any any </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">interface [port].[X] </span>
+                </p>
+                <p> <span class="header">R(config-subif)# </span>
+                    <span class="command">ip access-group [100-199] in </span>
+                </p>
+            </div>
+            <details>
+                <summary>Příklad</summary>
+                <p>Dodělám později xd</p>
+            </details>
+        </section>
+        <section>
+            <div class="text">
                 <h1>Show</h1>
             </div>
             <div class="code">
@@ -503,7 +621,6 @@
             <div class="text">
                 <h1>Seznam co přidat</h1>
                 <ul>
-                    <li>ACL</li>
                     <li>MAC filtering</li>
                     <li>DNS Server</li>
                     <li>WAMP server</li>
