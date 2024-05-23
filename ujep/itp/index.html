@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs-cz">
 
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,20 @@
     <title>CISCO</title>
     <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
     <header>
         <h1>CISCO - Cheatsheet</h1>
+        <nav>
+            <label class="switch">
+                
+                <input type="checkbox" id="version-switch">
+                <span class="slider round"></span>
+                
+            </label>
+        </nav>
     </header>
     <main>
         <details>
@@ -31,21 +40,13 @@
                 <h1>Základní nastavení</h1>
             </div>
             <div class="code">
-                <p><span class="header">Router> </span><span class="command">enable </span><span class="sc">en </span>
-                </p>
-                <p><span class="header">Router# </span><span class="command">config terminal </span><span
-                        class="sc">conf t </span></p>
-                <p><span class="header">Router(config)# </span><span class="command">hostname R </span><span
-                        class="sc">h R </span></p>
-                <p><span class="header">R(config)# </span><span class="command">line console 0 </span><span
-                        class="sc">lin c 0 </span></p>
-                <p><span class="header">R(config-line)# </span><span class="command">logging synchronous </span><span
-                        class="comment">/*Odřádkovávání. Dost užitečné zapnout. Řeší když uprostřed psaní příkazu
-                        vyskočí zpráva od routeru */</span><span class="sc">logg s </span></p> <br>
-                <p><span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište <span
-                            class="command">no </span>*/</span></p>
-                <p><span class="header">R(config)# </span><span class="command">no hostname R</span><span class="sc">no
-                        h R </span></p>
+                <p><span class="header">Router> </span><span class="command ver full">enable </span><span class="command sc ver short">en </span></p>
+                <p><span class="header">Router# </span><span class="command ver full">config terminal </span><span class="command sc ver short">conf t </span></p>
+                <p><span class="header">Router(config)# </span><span class="command ver full">hostname R </span><span class="command sc ver short">h R </span></p>
+                <p><span class="header">R(config)# </span><span class="command ver full">line console 0 </span><span class="command sc ver short">lin c 0 </span></p>
+                <p><span class="header">R(config-line)# </span><span class="command ver full">logging synchronous </span><span class="command sc ver short">logg s </span><span class="comment">/*Odřádkovávání. Dost užitečné zapnout. Řeší když uprostřed psaní příkazu vyskočí zpráva od routeru */</span></p> <br>
+                <p><span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište <span class="command">no </span>*/</span></p>
+                <p><span class="header">R(config)# </span><span class="command ver full">no hostname R</span><span class="command sc ver short">no h R </span></p>
                 <p><span class="header">Router(config)# </span></p>
             </div>
         </section>
@@ -54,14 +55,10 @@
                 <h2>Interface</h2>
             </div>
             <div class="code">
-                <p><span class="header">R(config)# </span><span class="command">interface gigabitEthernet0/0/0
-                    </span><span class="sc">int g0/0/0 </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">ip address [adresa] [maska]
-                    </span><span class="sc">ip add </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">no shutdown </span><span
-                        class="comment">//Zapnutí</span><span class="sc">no shu </span></p>
-                <p><span class="header">R(config-if)# </span><span class="command">shutdown </span><span
-                        class="comment">//Vypnutí</span><span class="sc">shu </span></p>
+                <p><span class="header">R(config)# </span><span class="command ver full">interface gigabitEthernet0/0/0</span><span class="command sc ver short">int g0/0/0 </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">ip address [adresa] [maska]</span><span class="command sc ver short">ip add </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">no shutdown </span><span class="command sc ver short">no shu </span></p>
+                <p><span class="header">R(config-if)# </span><span class="command ver full">shutdown </span><span class="command sc ver short">shu </span></p>
             </div>
         </section>
         <section>
@@ -173,7 +170,7 @@
                     <p><span class="header">R1(config)# </span><span class="command">int g0/0
                         </span></p>
                     <p><span class="header">R1(config-if)# </span><span class="command">st 1 ip 192.168.1.1</p>
-                    <p><span class="header">R1(config-if)# </span><span class="command">st 1 p 200 </span></p> <br>
+                    <p><span class="header">R1(config-if)# </span><span class="command">st 1 pri 200 </span></p> <br>
                     <p><span class="header">R2(config)# </span><span class="command">int g0/0
                         </span><span class="sc">int g0/0 </span></p>
                     <p><span class="header">R2(config-if)# </span><span class="command">st 1 ip 192.168.1.1
