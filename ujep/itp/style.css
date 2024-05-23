@@ -248,6 +248,6 @@ input:checked+.slider:before {
     }
 
     .tooltiptext {
-        visibility: hidden;
+        display: none;
     }
 }
