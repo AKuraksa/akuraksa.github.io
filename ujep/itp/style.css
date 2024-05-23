@@ -210,25 +210,25 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-  
-  .tooltip .tooltiptext {
+
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: #111;
     color: #fff;
     text-align: center;
-    
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     bottom: 110%;
     left: 100%;
     margin-left: -120px;
-  }
-  
-  .tooltip:hover .tooltiptext {
+}
+
+.tooltip:hover .tooltiptext {
     visibility: visible;
-  }
+}
 
 @media (max-width: 720px) {
     body {
@@ -242,7 +242,12 @@ input:checked+.slider:before {
     img {
         width: 100%;
     }
-    .code-show{
+
+    .code-show {
         margin: 10px 0 0 15px;
+    }
+
+    .tooltiptext {
+        visibility: hidden;
     }
 }
