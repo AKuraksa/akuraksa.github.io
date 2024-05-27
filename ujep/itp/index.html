@@ -59,13 +59,33 @@
                 <p> <span class="header">R(config-line)# </span>
                     <span class="command ver full">logging synchronous </span>
                     <span class="command sc ver short">logg s </span>
-                    <span class="comment">/*Odřádkovávání. Dost užitečné zapnout. Řeší když uprostřed psaní příkazu
-                        vyskočí zpráva od routeru */</span>
+                    <span class="comment">/*Odřádkovávání. Dost užitečné zapnout, protože zajišťuje lepší přehlednost při psaní příkazů */</span>
                 </p>
-                <br>
-                <p> <span class="comment">/*Pro vymazání některého z příkazů příkaz opiště a před něj napište
-                        <span class="command">no </span>*/</span>
-                </p>
+                <details>
+                    <summary>Ukázka</summary>
+                    <div>
+                        <table style="text-align: center;">
+                            <tr>
+                                <td>Bez logging synchronous</td>
+                                <td>S logging synchronous</td>
+                            </tr>
+                            <tr>
+                                <td><img src="pic/no_logg.png" alt="" width="500px"></td>
+                                <td><img src="pic/logg.png" alt="" width="500px"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </details>
+            </div>
+        </section>
+        <section>
+            <div class="text">
+                <h1>Rušení příkazů</h1>
+                <p> Pro vymazání některého z příkazů příkaz opiště a před něj napište
+                    <span class="command">no </span>
+            </p>
+            </div>
+            <div class="code">
                 <p> <span class="header">R(config)# </span>
                     <span class="command ver full">no hostname R</span>
                     <span class="command sc ver short">no h R </span>
