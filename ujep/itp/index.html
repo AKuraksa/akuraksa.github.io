@@ -25,14 +25,16 @@
     <main>
         <details>
             <summary>Vysvětlivky závorek</summary>
-            <div class="code-show">
-                <p>adresa → Pokud maska x.x.x.x/24 Pak adresa = x.x.x.1-254</p>
-                <p>adresa sítě → x.x.x.x/24 Pak adresa sítě = x.x.x.0</p>
-                <p>maska → 255.255.255.0</p>
-                <p>wildcard → 0.0.0.255</p>
+            <div class="code">
                 <p>x/id -> číslo <span class="comment">/*Pro zjištění rozsahu dej za příkaz <span
-                            class="command">?</span>*/</span></p>
+                    class="command">?</span>*/</span></p>
                 <p>g0/0/0 → slot/modul/port</p>
+                <br>
+                <h3>192.168.0.x/24</h3>
+                <li><strong>Adresa</strong> → 192.168.0.<span class="sc">1-254</span></li>
+                <li><strong>Adresa sítě</strong> → 192.168.0.<span class="sc">0</span></li>
+                <li><strong>Maska</strong> → 255.255.255.0</li>
+                <li><strong>Wildcard</strong> → 0.0.0.255</li>
             </div>
         </details>
         <section>
@@ -497,25 +499,6 @@
             <details>
                 <summary>Teorie</summary>
                 <p>Jde použít jak pro Router tak i Switch (Pro Switch je ale potřeba přidat adresu pro vlan 1)</p>
-                <details>
-                    <summary>Pro Switch</summary>
-                    <div class="code">
-                        <p> <span class="comment">/*Kód níže + toto*/</span>
-                        </p>
-                        <p> <span class="header">SW(config)# </span>
-                            <span class="command ver full">interface vlan 1 </span>
-                            <span class="command sc ver short">int vlan 1 </span>
-                        </p>
-                        <p> <span class="header">SW(config-if)# </span>
-                            <span class="command ver full">no shutdown </span>
-                            <span class="command sc ver short">no shu </span>
-                        </p>
-                        <p> <span class="header">SW(config)# </span>
-                            <span class="command ver full">ip address [adresa] [maska] </span>
-                            <span class="command sc ver short">ip add [adresa] [maska] </span>
-                        </p>
-                    </div>
-                </details>
             </details>
             <div class="code">
                 <p> <span class="header">R(config)# </span>
@@ -526,6 +509,7 @@
                 </p>
                 <p> <span class="header">How many bits in the modulus [2048]: </span>
                     <span class="command">1024 </span>
+                    <span class="comment">/*Rychlejší vygenerování*/</span>
                 </p>
                 <p> <span class="header">R(config)# </span>
                     <span class="command">ip ssh version 2 </span>
@@ -551,6 +535,24 @@
                 <p> <span class="header">R(config)# </span>
                     <span class="command">enable secret [heslo] </span>
                 </p>
+                <details>
+                    <summary>Switch</summary>
+                        <p> <span class="comment">/*Kód výše + toto*/</span>
+                        </p>
+                        <p> <span class="header">SW(config)# </span>
+                            <span class="command ver full">interface vlan 1 </span>
+                            <span class="command sc ver short">int vlan 1 </span>
+                        </p>
+                        <p> <span class="header">SW(config-if)# </span>
+                            <span class="command ver full">no shutdown </span>
+                            <span class="command sc ver short">no shu </span>
+                        </p>
+                        <p> <span class="header">SW(config)# </span>
+                            <span class="command ver full">ip address [adresa] [maska] </span>
+                            <span class="command sc ver short">ip add [adresa] [maska] </span>
+                        </p>
+                    
+                </details>
             </div>
         </section>
         <section>
