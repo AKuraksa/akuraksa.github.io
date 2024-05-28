@@ -26,13 +26,19 @@
         <details>
             <summary>O Stránce</summary>
             <p>Příkazy pro nastavení síťových prvků značky CISCO</p>
-            <p>Podobné : <a href="https://pingpong.ki.ujep.cz/ITP">Matěj Kaška - Ping Pong</a>, <a href="https://itp-kucharka.ki.ujep.cz">Lukáš Bílek - ITP Kuchařka</a></p>
+            <p>Podobné :
+                <a href="https://pingpong.ki.ujep.cz/ITP">Matěj Kaška - Ping Pong</a>,
+                <a href="https://itp-kucharka.ki.ujep.cz">Lukáš Bílek - ITP Kuchařka</a>,
+                <a
+                    href="https://ujepcz-my.sharepoint.com/:w:/g/personal/st98395_students_ujep_cz/Eb2CH5s7l4NGmwSC_L3F330BJjX5PjSkUYeBk-g-YsRkbA?e=exWU0Z">Mr.
+                    Síťař</a>
+            </p>
         </details>
         <details>
             <summary>Vysvětlivky</summary>
             <div class="code">
                 <p>x/id -> číslo <span class="comment">/*Pro zjištění rozsahu dej za příkaz <span
-                    class="command">?</span>*/</span></p>
+                            class="command">?</span>*/</span></p>
                 <p>Port → f0/0, g0/0/0, s0/0/0</p>
                 <p>g0/0/0 → slot/modul/port</p>
                 <br>
@@ -69,7 +75,8 @@
                 <p> <span class="header">R(config-line)# </span>
                     <span class="command ver full">logging synchronous </span>
                     <span class="command sc ver short">logg s </span>
-                    <span class="comment">/*Odřádkovávání. Dost užitečné zapnout, protože zajišťuje lepší přehlednost při psaní příkazů */</span>
+                    <span class="comment">/*Odřádkovávání. Dost užitečné zapnout, protože zajišťuje lepší přehlednost
+                        při psaní příkazů */</span>
                 </p>
                 <details>
                     <summary>Ukázka</summary>
@@ -91,9 +98,9 @@
         <section>
             <div class="text">
                 <h1>Mazání nastavení</h1>
-                <p>Příkaz který chcete smazat jen opiště s 
+                <p>Příkaz který chcete smazat jen opiště s
                     <span class="command">no </span> na začátku
-            </p>
+                </p>
             </div>
             <div class="code">
                 <p> <span class="header">R(config)# </span>
@@ -191,11 +198,13 @@
                     <span class="comment">// Seznam vyloučených adres</span>
                 </p>
                 <span class="comment">|</span><br>
-                <p><span class="comment">|</span><span class="comment">/*Pokud chci mít DHCP na jednom routeru můžu jiný R na něj odkazovat. Správné přiřazení adresy z pool rozhoduje jaká je adresa brány.*/</span></p>
+                <p><span class="comment">|</span><span class="comment">/*Pokud chci mít DHCP na jednom routeru můžu jiný
+                        R na něj odkazovat. Správné přiřazení adresy z pool rozhoduje jaká je adresa brány.*/</span></p>
                 <p> <span class="comment">|</span>
                     <span class="header">R(config-subif)# </span>
                     <span class="command ver full">ip helper-address [adresa] </span>
-                    <span class="command sc ver short">ip help [adresa]</span></p>
+                    <span class="command sc ver short">ip help [adresa]</span>
+                </p>
 
             </div>
             <details>
@@ -577,8 +586,9 @@
                 <!--<p><span class="comment">/*Použitím active aktivujeme protokol LACP. Pokud máme více SW do kruhu
                         použijeme na 1 channelu mod passive*/</span>
                 </p>-->
-                <p><span class="comment">/*Toto uděláme na obou SW (Range nemusí být na obou stranách stejný). Nezapomeň na
-                    <a href="#trunk">Trunk</a>*/</span>
+                <p><span class="comment">/*Toto uděláme na obou SW (Range nemusí být na obou stranách stejný). Nezapomeň
+                        na
+                        <a href="#trunk">Trunk</a>*/</span>
                 </p>
             </div>
         </section>
@@ -588,8 +598,16 @@
             </div>
             <details>
                 <summary>Teorie</summary>
-                <p><strong>Polopatě: </strong>Router může mít několik interfaců s několika adresami. V praxi to znamená, že pro každou síť má router nějaké označení (adresu), ale žádnou unikátní pro všechny, která by určovala že to je zrovna tento konkrétní router. Loopback tento problém řeší. Loopback je virtuální interface a přidáním jedinečné adresy můžeme router "označit".</p>
-                <p><strong>Výhody: </strong>Jelikož je virtuální tak je vždy v provozu a viditelný ze všech interfaců <strong>(musí být přidán do routovacího protokolu)</strong>. V praxi to znamená že pokud se chci připojit pomocí SSH na konkrétní Router nemusím řešit jakou linku (adresu) zadat. Stačí zadat adresu loopbacku a pokud je Router v provozu a je zapojen do minimálně 1 linky tak si síť najde vždy cestu. Tato adresa se dá použít i pro <span class="command">ip helper-address</span>, ale nedoporučuju to</p>
+                <p><strong>Polopatě: </strong>Router může mít několik interfaců s několika adresami. V praxi to znamená,
+                    že pro každou síť má router nějaké označení (adresu), ale žádnou unikátní pro všechny, která by
+                    určovala že to je zrovna tento konkrétní router. Loopback tento problém řeší. Loopback je virtuální
+                    interface a přidáním jedinečné adresy můžeme router "označit".</p>
+                <p><strong>Výhody: </strong>Jelikož je virtuální tak je vždy v provozu a viditelný ze všech interfaců
+                    <strong>(musí být přidán do routovacího protokolu)</strong>. V praxi to znamená že pokud se chci
+                    připojit pomocí SSH na konkrétní Router nemusím řešit jakou linku (adresu) zadat. Stačí zadat adresu
+                    loopbacku a pokud je Router v provozu a je zapojen do minimálně 1 linky tak si síť najde vždy cestu.
+                    Tato adresa se dá použít i pro <span class="command">ip helper-address</span>, ale nedoporučuju to
+                </p>
                 <p><strong>Použití: </strong>Jako koncové body pro přemostění RSRB a DLSW+</p>
             </details>
             <div class="code">
@@ -687,21 +705,21 @@
                 </p>
                 <details>
                     <summary>Switch</summary>
-                        <p> <span class="comment">/*Kód výše + toto*/</span>
-                        </p>
-                        <p> <span class="header">SW(config)# </span>
-                            <span class="command ver full">interface vlan 1 </span>
-                            <span class="command sc ver short">int vlan 1 </span>
-                        </p>
-                        <p> <span class="header">SW(config-if)# </span>
-                            <span class="command ver full">no shutdown </span>
-                            <span class="command sc ver short">no shu </span>
-                        </p>
-                        <p> <span class="header">SW(config)# </span>
-                            <span class="command ver full">ip address [adresa] [maska] </span>
-                            <span class="command sc ver short">ip add [adresa] [maska] </span>
-                        </p>
-                    
+                    <p> <span class="comment">/*Kód výše + toto*/</span>
+                    </p>
+                    <p> <span class="header">SW(config)# </span>
+                        <span class="command ver full">interface vlan 1 </span>
+                        <span class="command sc ver short">int vlan 1 </span>
+                    </p>
+                    <p> <span class="header">SW(config-if)# </span>
+                        <span class="command ver full">no shutdown </span>
+                        <span class="command sc ver short">no shu </span>
+                    </p>
+                    <p> <span class="header">SW(config)# </span>
+                        <span class="command ver full">ip address [adresa] [maska] </span>
+                        <span class="command sc ver short">ip add [adresa] [maska] </span>
+                    </p>
+
                 </details>
             </div>
         </section>
@@ -711,10 +729,13 @@
             </div>
             <details>
                 <summary>Teorie</summary>
-                <p>Ok. Tohle je o něco zajímavější, ale není to těžký a pokusím se to co nejlépe popsat o co tady jde.</p>
+                <p>Ok. Tohle je o něco zajímavější, ale není to těžký a pokusím se to co nejlépe popsat o co tady jde.
+                </p>
                 <br>
                 <p>Bez ACL může každý host komunikovat libovolně jakýmkoliv jiným hostem (myslím tím PC).</p>
-                <p>Pomocí ACL určíme kdo s kým může komunikovat. Resp v následujících metodách nastevení ACL určíme že každý může komunikovat VLAN, ale té omezíme komunikaci do ostatních (=packet z cizí k nám může dorazit, ale my neodpovíme pokud to máme v ACL zakázaný)</p>
+                <p>Pomocí ACL určíme kdo s kým může komunikovat. Resp v následujících metodách nastevení ACL určíme že
+                    každý může komunikovat VLAN, ale té omezíme komunikaci do ostatních (=packet z cizí k nám může
+                    dorazit, ale my neodpovíme pokud to máme v ACL zakázaný)</p>
             </details>
             <div class="code">
                 <p> <span class="comment">/*Extended ACL metoda*/</span></p>
@@ -757,7 +778,8 @@
         <section>
             <div class="text">
                 <h1>Show</h1>
-                <p>V Configuration mode musíš před příkaz přidat <span class="command">do</span> nebo z něj odejít pomocí <span class="command">exit</span></p>
+                <p>V Configuration mode musíš před příkaz přidat <span class="command">do</span> nebo z něj odejít
+                    pomocí <span class="command">exit</span></p>
             </div>
             <div class="code">
                 <p> <span class="header">Router# </span>
@@ -835,13 +857,17 @@
     </main>
     <footer>
         <p>Vypracoval: Andrej Kuraksa</p>
-        <a href="https://www.toplist.cz" id="toplistcz1836473" title="TOPlist"><noscript><img src="https://toplist.cz/dot.asp?id=1836473&njs=1" border="0"
-            alt="TOPlist" width="1" height="1" border=0/></noscript><script language="JavaScript" type="application/javascript" charset="utf-8">
-            (function(d,e,s) {d.getElementById('toplistcz1836473').innerHTML='<img src="https://toplist.cz/dot.asp?id=1836473&http='+
-            e(d.referrer)+'&t='+e(d.title)+'&l='+e(d.URL)+'&wi='+e(s.width)+'&he='+e(s.height)+'&cd='+
-            e(s.colorDepth)+'" width="1" height="1" border=0 alt="TOPlist" />';
-            }(document,encodeURIComponent,window.screen))
-            </script></a>
+        <a href="https://www.toplist.cz" id="toplistcz1836473" title="TOPlist"><noscript><img
+                    src="https://toplist.cz/dot.asp?id=1836473&njs=1" border="0" alt="TOPlist" width="1" height="1"
+                    border=0 /></noscript>
+            <script language="JavaScript" type="application/javascript" charset="utf-8">
+                (function (d, e, s) {
+                    d.getElementById('toplistcz1836473').innerHTML = '<img src="https://toplist.cz/dot.asp?id=1836473&http=' +
+                        e(d.referrer) + '&t=' + e(d.title) + '&l=' + e(d.URL) + '&wi=' + e(s.width) + '&he=' + e(s.height) + '&cd=' +
+                        e(s.colorDepth) + '" width="1" height="1" border=0 alt="TOPlist" />';
+                }(document, encodeURIComponent, window.screen))
+            </script>
+        </a>
     </footer>
 </body>
 
