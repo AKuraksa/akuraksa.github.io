@@ -52,6 +52,11 @@ a {
     font-weight: bolder;
 }
 
+#active {
+    color: rgb(193, 150, 29);
+    font-weight: bolder;
+}
+
 a:visited {
     color: rgb(255, 39, 183);
     font-weight: bolder;
@@ -73,6 +78,22 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: rgb(30, 30, 30);
+    align-items: flex-end;
+}
+
+nav a {
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    font-weight: 700;    
+}
+
+nav a:visited {
+    color: white;
+}
+
+nav a:hover {
+    color: red;
 }
 
 main {
@@ -95,6 +116,7 @@ summary {
     background-color: var(--color-black);
     margin: 5px 0;
     padding: 20px;
+    border-left: 3px solid red;
 }
 
 .header {
@@ -114,10 +136,11 @@ summary {
     margin: 10px 0 0 30px;
     padding: 15px 20px;
     line-height: 15px;
+    border-left: 3px solid orange;
 }
 
 .code-show .command {
-    font-weight: normal !important;
+    font-weight: 600 !important;
 }
 
 .command {
