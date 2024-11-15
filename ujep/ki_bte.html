@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI/BTE</title>
+    <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Bezpečnostní technologie</h1>
+        <nav>
+            <a href="index.html">Domov</a>
+            <a href="#">KI/ZPS</a>
+            <a href="#">KI/UBT</a>
+            <a href="ki_itp.html">KI/ITP</a>
+            <a id="active" href="ki_bte.html">KI/BTE</a>
+            <a href="ki_pse.html">KI/PSE</a>
+            <a href="">KI/PPS</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Nastavení WireGuard</h2>
+        <p>Vše, co není zmíněno v tabulkách (konfiguraci), je defaultně nastavené a nemění se nastavení u toho.</p>
+
+        <h3>Instance</h3>
+        <p>VPN → WireGuard → Instances</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Enabled</td>
+                    <td>Zaškrtnuto</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>To je na vás</td>
+                </tr>
+                <tr>
+                    <td>Public key</td>
+                    <td>Nechat vygenerovat, poté použijeme při nastavování klienta</td>
+                </tr>
+                <tr>
+                    <td>Listen port</td>
+                    <td>51820 (defaultní port)</td>
+                </tr>
+                <tr>
+                    <td>Tunnel address</td>
+                    <td>10.10.10.1/24 (ta byla z tutoriálu xD)</td>
+                </tr>
+                <tr>
+                    <td>Peers</td>
+                    <td>(Peer bude teprve vytvořen)</td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="pic/BTE_OPNSense1.png" alt="Network">
+
+        <h3>Peer</h3>
+        <p>VPN → WireGuard → Peers</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Enabled</td>
+                    <td>Zaškrtnuto</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>To je na vás</td>
+                </tr>
+                <tr>
+                    <td>Public key</td>
+                    <td>Sem vložit Public key klienta</td>
+                </tr>
+                <tr>
+                    <td>Allowed IPs</td>
+                    <td>10.10.10.15/32 (musí být jako v Instanci Tunnel address, ale né stejná IP)</td>
+                </tr>
+                <tr>
+                    <td>Endpoint address</td>
+                    <td>WAN interface adresa OPNSense</td>
+                </tr>
+                <tr>
+                    <td>Endpoint port</td>
+                    <td>51820</td>
+                </tr>
+                <tr>
+                    <td>Instances</td>
+                    <td>Jméno instance, kterou máme vytvořenou</td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="pic/BTE_OPNSense2.png" alt="Network">
+        <p>Po dokončení všech nastavení nezapomenout dole Enable WireGuard a Apply.</p>
+        <img src="pic/BTE_OPNSense3.png" alt="Network">
+
+        <h2>Nastavení klienta</h2>
+        <p>Klienta jsem nastavoval ve Windows (neumím s konzolí v Linuxu LMAO). Při vytvoření nového prázdného tunelu se
+            vygeneruje private/public key, public key vložit do Peer na OPNSense WireGuardu.</p>
+
+        <h4>Konfigurace klienta</h4>
+        <pre>
+<strong>[Interface]</strong>
+PrivateKey = váš vygenerovaný
+Address = 10.10.10.15/32 (stejná adresa z Peer)
+
+<strong>[Peer]</strong>
+PublicKey = vygenerovaný v Instance
+AllowedIPs = 0.0.0.0/0
+Endpoint = vaše WAN adresa interfacu na OPNSense
+</pre>
+<img src="pic/BTE_OPNSense4.png" alt="Network">
+
+        <h2>Nastavení OPNSense Firewall</h2>
+        <h3>Interfaces</h3>
+        <p>Interfaces → Assignments</p>
+        <p>Přidat wireguard interface do interfaců a uložit. Poté se na levé liště objeví náš interface.</p>
+        <img src="pic/BTE_OPNSense5.png" alt="Network">
+
+        <h3>Váš interface na WireGuard</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Enable</td>
+                    <td>Zaškrtnuto</td>
+                </tr>
+                <tr>
+                    <td>Lock</td>
+                    <td>Zaškrtnuto</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>To je na vás, je to pro lepší identifikaci</td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="pic/BTE_OPNSense6.png" alt="Network">
+
+        <h3>Pravidla ve Firewallu</h3>
+        <p>Firewall → Rules → Název našeho interfacu</p>
+        <p>Přidáme nové pravidlo.</p>
+
+    </main>
+    <footer>
+        <p>Vypracoval: Andrej Kuraksa a Bao Kieu Quang</p>
+        <a href="https://www.toplist.cz" id="toplistcz1836473" title="TOPlist"><noscript><img
+                    src="https://toplist.cz/dot.asp?id=1836473&njs=1" border="0" alt="TOPlist" width="1" height="1"
+                    border=0 /></noscript>
+            <script language="JavaScript" type="application/javascript" charset="utf-8">
+                (function (d, e, s) {
+                    d.getElementById('toplistcz1836473').innerHTML = '<img src="https://toplist.cz/dot.asp?id=1836473&http=' +
+                        e(d.referrer) + '&t=' + e(d.title) + '&l=' + e(d.URL) + '&wi=' + e(s.width) + '&he=' + e(s.height) + '&cd=' +
+                        e(s.colorDepth) + '" width="1" height="1" border=0 alt="TOPlist" />';
+                }(document, encodeURIComponent, window.screen))
+            </script>
+        </a>
+    </footer>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CISCO</title>
+    <title>KI/ITP</title>
     <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
@@ -17,12 +17,32 @@
         <span class="slider round"></span>
     </label>
     <header>
-        <h1>CISCO - Cheatsheet</h1>
+        <h1>Internetové technologie a protokoly</h1>
         <nav>
-
+            <a href="index.html">Domov</a>
+            <a href="#">KI/ZPS</a>
+            <a href="#">KI/UBT</a>
+            <a id="active" href="ki_itp.html">KI/ITP</a>
+            <a href="ki_bte.html">KI/BTE</a>
+            <a href="ki_pse.html">KI/PSE</a>
+            <a href="">KI/PPS</a>
         </nav>
     </header>
     <main>
+        <!--<section>
+            <div class="text">
+                <h1>Seznam co přidat</h1>
+                <ul>
+                    <li>MAC filtering (asi mýtus)</li>
+                    <li>DNS Server</li>
+                    <li>WAMP server</li>
+                </ul>
+                <div class="code">
+                    <p> <span class="command">show standby</span> </p> 
+                    <p> <span class="command">snmp-server community heslo rw</span> </p> 
+                </div>
+            </div>
+        </section>-->
         <details>
             <summary>O Stránce</summary>
             <p>Příkazy pro nastavení síťových prvků značky CISCO</p>
@@ -51,9 +71,10 @@
         </details>
         <section>
             <div class="text">
-                <h1>Základní nastavení</h1>
+                <h1>To nejvíc Basic co by si už měl umět</h1>
             </div>
             <div class="code">
+                <h2>Základní nastavení</h2>
                 <p> <span class="header">Router> </span>
                     <span class="command ver full">enable </span>
                     <span class="command sc ver short">en </span>
@@ -93,26 +114,25 @@
                         </table>
                     </div>
                 </details>
-            </div>
-        </section>
-        <section>
-            <div class="text">
-                <h1>Mazání nastavení</h1>
+                <h2>Základní příkazy</h2>
+                    <p> <span class="command">do ping [adresa]</span> </p>
+                    <p> <span class="command">default interface gig0/0/0 Reset interfacu</span> </p>
+                <h2>Mazání nastavení</h2>
                 <p>Příkaz který chcete smazat jen opiště s
                     <span class="command">no </span> na začátku
                 </p>
-            </div>
-            <div class="code">
                 <p> <span class="header">R(config)# </span>
                     <span class="command ver full">no hostname R</span>
                     <span class="command sc ver short">no h R </span>
                 </p>
                 <p><span class="header">Router(config)# </span></p>
             </div>
+            </div>
         </section>
         <section>
             <div class="text">
                 <h2>Interface</h2>
+                <h5>Nastavení ip adresy</h5>
             </div>
             <div class="code">
                 <p> <span class="header">R(config)# </span>
@@ -128,10 +148,18 @@
                     <span class="command sc ver short">no shu </span>
                     <span class="comment">// Zapnutí portu</span>
                 </p>
+                <br>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">ip address dhcp </span> 
+                </p>
                 <p> <span class="header">R(config-if)# </span>
                     <span class="command ver full">shutdown </span>
                     <span class="command sc ver short">shu </span>
                     <span class="comment">// Vypnutí portu</span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">default interface [port] </span> 
+                    <span class="comment">// Restartování portu</span>
                 </p>
             </div>
             <details>
@@ -205,7 +233,14 @@
                     <span class="command ver full">ip helper-address [adresa] </span>
                     <span class="command sc ver short">ip help [adresa]</span>
                 </p>
-
+                <details>
+                    <summary>Debuging</summary>
+                    <div class="code-show">
+                        <p> <span class="header">R# </span>
+                            <span class="command">debug ip dhcp server events </span>
+                        </p>
+                    </div>
+                </details>
             </div>
             <details>
                 <summary>Příklad</summary>
@@ -342,6 +377,10 @@
                     <span class="command ver full">standby [id] priority [0-255] </span>
                     <span class="command sc ver short">st [id] pri [0-255] </span>
                 </p>
+                <br>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command ver full">standby [id] preempt </span>
+                </p>
             </div>
             <details>
                 <summary>Příklad</summary>
@@ -380,6 +419,19 @@
                 <h1>Routování</h1>
             </div>
             <div class="code">
+                <h2>Statický</h2>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip route [adresa sítě] [maska] [adresa routeru] </span>
+                    <span class="comment">/* -> Různé požadavky půjdou různým příjemcům */ </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip route 0.0.0.0 0.0.0.0 [adresa routeru] </span>
+                    <span class="comment">/* -> Vše ven. Určuji komu posílám */ </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip route 0.0.0.0 0.0.0.0 g0/0/0 </span>
+                    <span class="comment">/* -> Vše ven. Určuju kudy posílám */ </span>
+                </p>
                 <h2>RIPv2</h2>
                 <p><span class="header">R(config)# </span><span class="command">router rip </span></p>
                 <p><span class="header">R(config-router)# </span><span class="command">version 2 </span></p>
@@ -548,15 +600,27 @@
                     <p><span class="header">R(config)# </span><span class="command">ip access-list standard NAT</span>
                     </p>
                     <p><span class="header">R(config-std-nacl)# </span><span class="command">permit 192.168.0.0
-                            0.0.0.255 </span></p> <br>
+                            0.0.255.255 </span></p> <br>
                     <p><span class="header">R(config)# </span><span class="command">ip nat inside source list NAT
-                            interface g/0 overload </span></p>
+                            interface g0/0 overload </span></p>
                 </div>
             </details>
+            <div class="code">
+                <h2>Pro 2 routery inside</h2>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip nat pool [název pool] [adresa R1] [adresa R2] netmask 255.255.255.0 </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">ip nat inside source list [název] pool [název pool] overload </span>
+                </p>
+            </div>
         </section>
         <section>
             <div class="text">
-                <h1>Etherchannel</h1>
+                <h1>LAG (Link Aggregation Group)</h1>
+            </div>
+            <div class="code">
+                <h2>Etherchannel</h2>
                 <details>
                     <summary>Ukázka</summary>
                     <div>
@@ -572,8 +636,6 @@
                         </table>
                     </div>
                 </details>
-            </div>
-            <div class="code">
                 <p> <span class="header">SW(config)# </span>
                     <span class="command ver full">interface range fastEthernet0/21-24</span>
                     <span class="command sc ver short">int r f0/21-24</span>
@@ -589,6 +651,23 @@
                 <p><span class="comment">/*Toto uděláme na obou SW (Range nemusí být na obou stranách stejný). Nezapomeň
                         na
                         <a href="#trunk">Trunk</a>*/</span>
+                </p>
+                <h2>LACP</h2>
+                <p> <span class="header">SW1(config)# </span>
+                    <span class="command ver full">interface range fastEthernet0/21-24</span>
+                    <span class="command sc ver short">int r f0/21-24</span>
+                </p>
+                <p> <span class="header">SW1(config-if-range)# </span>
+                    <span class="command ver full">channel-group 1 mode active </span>
+                    <span class="command sc ver short">channel-g 1 m ac</span>
+                </p>
+                <br>
+                <p> <span class="header">SW2(config)# </span>
+                    <span class="command ver full">interface range fastEthernet0/21-24</span>
+                    <span class="command sc ver short">int r f0/21-24</span>
+                </p>
+                <p> <span class="header">SW2(config-if-range)# </span>
+                    <span class="command">channel-group 1 mode passive </span>
                 </p>
             </div>
         </section>
@@ -777,6 +856,90 @@
         </section>
         <section>
             <div class="text">
+                <h1>BVI (Bridge Virtual Interface)</h1>
+            </div>
+            <div class="code">
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">bridge irb </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">bridge 1 protocol ieee </span>
+                </p>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">bridge 1 route ip </span>
+                </p>
+                <br>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">interface [port-1] </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">bridge-group 1 </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">no shu </span>
+                </p>
+                <br>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">interface [port-2] </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">bridge-group 1 </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">no shu </span>
+                </p>
+                <br>
+                <p> <span class="header">R(config)# </span>
+                    <span class="command">interface BVI1 </span>
+                </p>
+                <p> <span class="header">R(config-if)# </span>
+                    <span class="command">ip address [adresa] [maska] </span>
+                </p>
+            </div>
+            <details>
+                <summary>Příklad</summary>
+                <div class="code-show">
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command">bridge irb </span>
+                    </p>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command">bridge 1 protocol ieee </span>
+                    </p>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command">bridge 1 route ip </span>
+                    </p>
+                    <br>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command">interface g0/0 </span>
+                    </p>
+                    <p> <span class="header">R(config-if)# </span>
+                        <span class="command">bridge-group 1 </span>
+                    </p>
+                    <p> <span class="header">R(config-if)# </span>
+                        <span class="command">no shu </span>
+                    </p>
+                    <br>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command">interface g0/1 </span>
+                    </p>
+                    <p> <span class="header">R(config-if)# </span>
+                        <span class="command">bridge-group 1 </span>
+                    </p>
+                    <p> <span class="header">R(config-if)# </span>
+                        <span class="command">no shu </span>
+                    </p>
+                    <br>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command">interface BVI1 </span>
+                    </p>
+                    <p> <span class="header">R(config-if)# </span>
+                        <span class="command">ip address 192.168.0.1 255.255.255.0 </span>
+                    </p>
+                </div>
+            </details>
+        </section>
+        <section>
+            <div class="text">
                 <h1>Show</h1>
                 <p>V Configuration mode musíš před příkaz přidat <span class="command">do</span> nebo z něj odejít
                     pomocí <span class="command">exit</span></p>
@@ -822,6 +985,10 @@
                     <span class="command sc ver short">sh e s </span>
                     <span class="comment">// Info o Etherchannel</span>
                 </p>
+                <p> <span class="header">Switch# </span>
+                    <span class="command">show nat translation </span>
+                    <span class="comment">// Info o NAT</span>
+                </p>
             </div>
         </section>
         <section>
@@ -842,18 +1009,6 @@
                 </div>
             </details>
         </section>
-        <!--<section>
-            <div class="text">
-                <h1>Seznam co přidat</h1>
-                <ul>
-                    <li>MAC filtering</li>
-                    <li>DNS Server</li>
-                    <li>WAMP server</li>
-                    <li>BVI interface</li>
-                    <li>Management VLAN</li>
-                </ul>
-            </div>
-        </section>-->
     </main>
     <footer>
         <p>Vypracoval: Andrej Kuraksa</p>
