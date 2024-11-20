@@ -17,19 +17,20 @@
         <span class="slider round"></span>
     </label>
     <header>
-        <h1>Internetové technologie a protokoly</h1>
-        <nav>
-            <a href="index.html">Domov</a>
-            <a href="#">KI/ZPS</a>
-            <a href="#">KI/UBT</a>
-            <a id="active" href="ki_itp.html">KI/ITP</a>
-            <a href="ki_bte.html">KI/BTE</a>
-            <a href="ki_pse.html">KI/PSE</a>
-            <a href="">KI/PPS</a>
-        </nav>
+        Internetové technologie a protokoly
     </header>
+    <nav>
+        <a href="index.html">Domov</a>
+        <a href="#">KI/ZPS</a>
+        <a href="#">KI/UBT</a>
+        <a id="active" href="ki_itp.html">KI/ITP</a>
+        <a href="ki_bte.html">KI/BTE</a>
+        <a href="ki_pse.html">KI/PSE</a>
+        <a href="">KI/PPS</a>
+    </nav>
     <main>
-        <!--<section>
+        <div class="container">
+            <!--<section>
             <div class="text">
                 <h1>Seznam co přidat</h1>
                 <ul>
@@ -43,91 +44,91 @@
                 </div>
             </div>
         </section>-->
-        <details>
-            <summary>O Stránce</summary>
-            <p>Příkazy pro nastavení síťových prvků značky CISCO</p>
-            <p>Podobné :
-                <a href="https://pingpong.ki.ujep.cz/ITP">Matěj Kaška - Ping Pong</a>,
-                <a href="https://itp-kucharka.ki.ujep.cz">Lukáš Bílek - ITP Kuchařka</a>,
-                <a
-                    href="https://ujepcz-my.sharepoint.com/:w:/g/personal/st98395_students_ujep_cz/Eb2CH5s7l4NGmwSC_L3F330BJjX5PjSkUYeBk-g-YsRkbA?e=exWU0Z">Mr.
-                    Síťař</a>
-            </p>
-        </details>
-        <details>
-            <summary>Vysvětlivky</summary>
-            <div class="code">
-                <p>x/id -> číslo <span class="comment">/*Pro zjištění rozsahu dej za příkaz <span
-                            class="command">?</span>*/</span></p>
-                <p>Port → f0/0, g0/0/0, s0/0/0</p>
-                <p>g0/0/0 → slot/modul/port</p>
-                <br>
-                <h3>192.168.0.x/24</h3>
-                <li><strong>Adresa</strong> → 192.168.0.<span class="sc">1-254</span></li>
-                <li><strong>Adresa sítě</strong> → 192.168.0.<span class="sc">0</span></li>
-                <li><strong>Maska</strong> → 255.255.255.0</li>
-                <li><strong>Wildcard</strong> → 0.0.0.255</li>
-            </div>
-        </details>
-        <section>
-            <div class="text">
-                <h1>To nejvíc Basic co by si už měl umět</h1>
-            </div>
-            <div class="code">
-                <h2>Základní nastavení</h2>
-                <p> <span class="header">Router> </span>
-                    <span class="command ver full">enable </span>
-                    <span class="command sc ver short">en </span>
-                    <span class="comment">// Privilage exec mode</span>
+            <details>
+                <summary>O Stránce</summary>
+                <p>Příkazy pro nastavení síťových prvků značky CISCO</p>
+                <p>Podobné :
+                    <a href="https://pingpong.ki.ujep.cz/ITP">Matěj Kaška - Ping Pong</a>,
+                    <a href="https://itp-kucharka.ki.ujep.cz">Lukáš Bílek - ITP Kuchařka</a>,
+                    <a
+                        href="https://ujepcz-my.sharepoint.com/:w:/g/personal/st98395_students_ujep_cz/Eb2CH5s7l4NGmwSC_L3F330BJjX5PjSkUYeBk-g-YsRkbA?e=exWU0Z">Mr.
+                        Síťař</a>
                 </p>
-                <p> <span class="header">Router# </span>
-                    <span class="command ver full">config terminal </span>
-                    <span class="command sc ver short">conf t </span>
-                    <span class="comment">// Configuration mode</span>
-                </p>
-                <p> <span class="header">Router(config)# </span>
-                    <span class="command ver full">hostname R </span>
-                    <span class="command sc ver short">h R </span>
-                </p>
-                <p> <span class="header">R(config)# </span>
-                    <span class="command ver full">line console 0 </span>
-                    <span class="command sc ver short">lin c 0 </span>
-                </p>
-                <p> <span class="header">R(config-line)# </span>
-                    <span class="command ver full">logging synchronous </span>
-                    <span class="command sc ver short">logg s </span>
-                    <span class="comment">/*Odřádkovávání. Dost užitečné zapnout, protože zajišťuje lepší přehlednost
-                        při psaní příkazů */</span>
-                </p>
-                <details>
-                    <summary>Ukázka</summary>
-                    <div>
-                        <table style="text-align: center;">
-                            <tr>
-                                <td>Bez logging synchronous</td>
-                                <td>S logging synchronous</td>
-                            </tr>
-                            <tr>
-                                <td><img src="pic/no_logg.png" alt="" width="500px"></td>
-                                <td><img src="pic/logg.png" alt="" width="500px"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </details>
-                <h2>Základní příkazy</h2>
+            </details>
+            <details>
+                <summary>Vysvětlivky</summary>
+                <div class="code">
+                    <p>x/id -> číslo <span class="comment">/*Pro zjištění rozsahu dej za příkaz <span
+                                class="command">?</span>*/</span></p>
+                    <p>Port → f0/0, g0/0/0, s0/0/0</p>
+                    <p>g0/0/0 → slot/modul/port</p>
+                    <br>
+                    <h3>192.168.0.x/24</h3>
+                    <li><strong>Adresa</strong> → 192.168.0.<span class="sc">1-254</span></li>
+                    <li><strong>Adresa sítě</strong> → 192.168.0.<span class="sc">0</span></li>
+                    <li><strong>Maska</strong> → 255.255.255.0</li>
+                    <li><strong>Wildcard</strong> → 0.0.0.255</li>
+                </div>
+            </details>
+            <section>
+                <div class="text">
+                    <h1>To nejvíc Basic co by si už měl umět</h1>
+                </div>
+                <div class="code">
+                    <h2>Základní nastavení</h2>
+                    <p> <span class="header">Router> </span>
+                        <span class="command ver full">enable </span>
+                        <span class="command sc ver short">en </span>
+                        <span class="comment">// Privilage exec mode</span>
+                    </p>
+                    <p> <span class="header">Router# </span>
+                        <span class="command ver full">config terminal </span>
+                        <span class="command sc ver short">conf t </span>
+                        <span class="comment">// Configuration mode</span>
+                    </p>
+                    <p> <span class="header">Router(config)# </span>
+                        <span class="command ver full">hostname R </span>
+                        <span class="command sc ver short">h R </span>
+                    </p>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command ver full">line console 0 </span>
+                        <span class="command sc ver short">lin c 0 </span>
+                    </p>
+                    <p> <span class="header">R(config-line)# </span>
+                        <span class="command ver full">logging synchronous </span>
+                        <span class="command sc ver short">logg s </span>
+                        <span class="comment">/*Odřádkovávání. Dost užitečné zapnout, protože zajišťuje lepší
+                            přehlednost
+                            při psaní příkazů */</span>
+                    </p>
+                    <details>
+                        <summary>Ukázka</summary>
+                        <div>
+                            <table style="text-align: center;">
+                                <tr>
+                                    <td>Bez logging synchronous</td>
+                                    <td>S logging synchronous</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="pic/no_logg.png" alt="" width="500px"></td>
+                                    <td><img src="pic/logg.png" alt="" width="500px"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </details>
+                    <h2>Základní příkazy</h2>
                     <p> <span class="command">do ping [adresa]</span> </p>
                     <p> <span class="command">default interface gig0/0/0 Reset interfacu</span> </p>
-                <h2>Mazání nastavení</h2>
-                <p>Příkaz který chcete smazat jen opiště s
-                    <span class="command">no </span> na začátku
-                </p>
-                <p> <span class="header">R(config)# </span>
-                    <span class="command ver full">no hostname R</span>
-                    <span class="command sc ver short">no h R </span>
-                </p>
-                <p><span class="header">Router(config)# </span></p>
-            </div>
-            </div>
+                    <h2>Mazání nastavení</h2>
+                    <p>Příkaz který chcete smazat jen opiště s
+                        <span class="command">no </span> na začátku
+                    </p>
+                    <p> <span class="header">R(config)# </span>
+                        <span class="command ver full">no hostname R</span>
+                        <span class="command sc ver short">no h R </span>
+                    </p>
+                    <p><span class="header">Router(config)# </span></p>
+                </div>
         </section>
         <section>
             <div class="text">
@@ -150,7 +151,7 @@
                 </p>
                 <br>
                 <p> <span class="header">R(config-if)# </span>
-                    <span class="command">ip address dhcp </span> 
+                    <span class="command">ip address dhcp </span>
                 </p>
                 <p> <span class="header">R(config-if)# </span>
                     <span class="command ver full">shutdown </span>
@@ -158,7 +159,7 @@
                     <span class="comment">// Vypnutí portu</span>
                 </p>
                 <p> <span class="header">R(config-if)# </span>
-                    <span class="command">default interface [port] </span> 
+                    <span class="command">default interface [port] </span>
                     <span class="comment">// Restartování portu</span>
                 </p>
             </div>
@@ -1009,9 +1010,10 @@
                 </div>
             </details>
         </section>
+        </div>
     </main>
     <footer>
-        <p>Vypracoval: Andrej Kuraksa</p>
+        <p>&copy; 2024 Vytvořil: Andrej Kuraksa</p>
         <a href="https://www.toplist.cz" id="toplistcz1836473" title="TOPlist"><noscript><img
                     src="https://toplist.cz/dot.asp?id=1836473&njs=1" border="0" alt="TOPlist" width="1" height="1"
                     border=0 /></noscript>
