@@ -7,60 +7,198 @@
     <title>KI/PSE</title>
     <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: #1e1e1e;
+        }
+        header, nav, .container{
+            background-color: rgb(50, 50, 50);
+        }
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        header {
+            background-color: #333333;
+            color: #ffa500;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444444;
+        }
+        nav a {
+            margin: 0 15px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <h1>Počítačové sítě</h1>
-        <nav>
-            <a href="index.html">Domov</a>
-            <a href="#">KI/ZPS</a>
-            <a href="#">KI/UBT</a>
-            <a href="ki_itp.html">KI/ITP</a>
-            <a href="ki_bte.html">KI/BTE</a>
-            <a id="active" href="ki_pse.html">KI/PSE</a>
-            <a href="">KI/PPS</a>
-        </nav>
+        Počítačové sítě
     </header>
+    <nav>
+        <a href="index.html">Domov</a>
+        <a href="#">KI/ZPS</a>
+        <a href="#">KI/UBT</a>
+        <a href="ki_itp.html">KI/ITP</a>
+        <a href="ki_bte.html">KI/BTE</a>
+        <a id="active" href="ki_pse.html">KI/PSE</a>
+        <a href="">KI/PPS</a>
+    </nav>
     <main>
-        <section>
-            <div class="text">
-                <h2>Nastavení Mikrotiku</h2>
-                <table>
-                        <tr><td><img src="pic/PSE_Mikrotik1.png" alt="Network"></td></tr>
-                        <tr><td><img src="pic/PSE_Mikrotik2.png" alt="Network"></td></tr>
-                        <tr><td><img src="pic/PSE_Mikrotik3.png" alt="Network"></td></tr>
-                        <tr><td><img src="pic/PSE_Mikrotik4.png" alt="Network"></td></tr>
-                        <tr><td><img src="pic/PSE_Mikrotik5.png" alt="Network"></td></tr>
-                        <tr><td><img src="pic/PSE_Mikrotik6.png" alt="Network"></td></tr>
-                </table>
-            </div>
-        </section>
-        <section>
-            <div class="text">
-                <h2>Nastavení OPNSense</h2>
-                <table>
-                    <tr><td><img src="pic/PSE_OPNSense1.png" alt="Network"></td></tr>
-                    <tr><td><img src="pic/PSE_OPNSense2.png" alt="Network"></td></tr>
-                    <tr><td><img src="pic/PSE_OPNSense3.png" alt="Network"></td></tr>
-                    <tr><td><img src="pic/PSE_OPNSense4.png" alt="Network"></td></tr>
-                    <tr><td><img src="pic/PSE_OPNSense5.png" alt="Network"></td></tr>
-                </table>
-
-            </div>
-        </section>
-        <section>
-            <div class="text">
-                <h2>Nastavení SonicWallu</h2>
-                <table>
-                    <tr><td><img src="pic/PSE_SonicWall1.png" alt="Network"></td></tr>
-                    <tr><td><img src="pic/PSE_SonicWall2.png" alt="Network"></td></tr>
-                </table>
-            </div>
-        </section>
+        <div class="container">
+            <section>
+                <div class="text">
+                    <h2>Nastavení Mikrotiku</h2>
+                    <table>
+                        <tr>
+                            <td><img src="pic/PSE_Mikrotik1.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_Mikrotik2.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_Mikrotik3.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_Mikrotik4.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_Mikrotik5.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_Mikrotik6.png" alt="Network"></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="text">
+                    <h2>Nastavení OPNSense</h2>
+                    <table>
+                        <tr>
+                            <td><img src="pic/PSE_OPNSense1.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_OPNSense2.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_OPNSense3.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_OPNSense4.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_OPNSense5.png" alt="Network"></td>
+                        </tr>
+                    </table>
+    
+                </div>
+            </section>
+            <section>
+                <div class="text">
+                    <h2>Nastavení SonicWallu</h2>
+                    <table>
+                        <tr>
+                            <td><img src="pic/PSE_SonicWall1.png" alt="Network"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic/PSE_SonicWall2.png" alt="Network"></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="text">
+                    <h1>Nastavení OSPF na Turris Omnia (ChatGPT)</h1>
+                    <ol>
+                        <li>
+                            <strong>Přístup k routeru:</strong>
+                            <ul>
+                                <li>Připojte se k routeru Turris Omnia přes SSH nebo webové rozhraní.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Instalace potřebných balíčků:</strong>
+                            <ul>
+                                <li>Ujistěte se, že máte nainstalovaný balíček pro OSPF. Použijte následující příkaz přes
+                                    SSH:</li>
+                            </ul>
+                            <pre><code>opkg update
+    opkg install quagga</code></pre>
+                        </li>
+                        <li>
+                            <strong>Konfigurace Quagga:</strong>
+                            <ol>
+                                <li>
+                                    Po instalaci Quagga je třeba ji nakonfigurovat pro OSPF. Konfigurační soubory jsou
+                                    obvykle umístěny v <code>/etc/quagga/</code>.
+                                </li>
+                                <li>
+                                    Vytvořte nebo upravte soubor <code>zebra.conf</code>:
+                                    <pre><code>vi /etc/quagga/zebra.conf</code></pre>
+                                    Přidejte následující základní konfiguraci:
+                                    <pre><code>hostname Router
+    password vaše_heslo
+    enable password vaše_enable_heslo</code></pre>
+                                </li>
+                                <li>
+                                    Vytvořte nebo upravte soubor <code>ospfd.conf</code>:
+                                    <pre><code>vi /etc/quagga/ospfd.conf</code></pre>
+                                    Přidejte následující konfiguraci (upravte síťové adresy podle potřeby):
+                                    <pre><code>hostname Router
+    password vaše_heslo
+    log file /var/log/quagga/ospfd.log
+    
+    router ospf
+    ospf router-id 1.1.1.1
+    network 192.168.1.0/24 area 0.0.0.0</code></pre>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <strong>Povolení a spuštění Quagga:</strong>
+                            <ul>
+                                <li>Spusťte a povolte službu Quagga:</li>
+                            </ul>
+                            <pre><code>/etc/init.d/quagga enable
+    /etc/init.d/quagga start</code></pre>
+                        </li>
+                        <li>
+                            <strong>Kontrola stavu OSPF:</strong>
+                            <ul>
+                                <li>Zkontrolujte stav OSPF a sousedy pomocí příkazu:</li>
+                            </ul>
+                            <pre><code>vtysh
+    show ip ospf neighbor</code></pre>
+                        </li>
+                        <li>
+                            <strong>Ověření konfigurace:</strong>
+                            <ul>
+                                <li>Ujistěte se, že konfigurace je správná a OSPF běží správně.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Konfigurace firewallu:</strong>
+                            <ul>
+                                <li>Ujistěte se, že nastavení firewallu umožňuje provoz OSPF (UDP port 89).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </div>
     </main>
     <footer>
-        <p>Vypracoval: Andrej Kuraksa a Kuba Petrášek</p>
+        <p>Vypracoval: Andrej Kuraksa, Kuba Petrášek a Jaroslav Molnár</p>
         <a href="https://www.toplist.cz" id="toplistcz1836473" title="TOPlist"><noscript><img
                     src="https://toplist.cz/dot.asp?id=1836473&njs=1" border="0" alt="TOPlist" width="1" height="1"
                     border=0 /></noscript>

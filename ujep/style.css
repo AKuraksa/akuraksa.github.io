@@ -22,6 +22,7 @@ body {
     color: var(--color-white);
     background-color: rgb(50, 50, 50);
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    line-height: 1.6;
 }
 
 body,
@@ -252,6 +253,17 @@ input:checked+.slider:before {
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+
+pre{
+    background-color: var(--color-black);
+    margin: 5px 0;
+    padding: 20px;
+    border-left: 3px solid red;
+}
+
+code{
+    background-color: var(--color-black);
 }
 
 @media (max-width: 720px) {
