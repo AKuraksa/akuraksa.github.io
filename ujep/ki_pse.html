@@ -69,7 +69,7 @@
                             <td><img src="pic/PSE_OPNSense5.png" alt="Network"></td>
                         </tr>
                     </table>
-    
+
                 </div>
             </section>
             <section>
@@ -98,11 +98,14 @@
                         <li>
                             <strong>Instalace potřebných balíčků:</strong>
                             <ul>
-                                <li>Ujistěte se, že máte nainstalovaný balíček pro OSPF. Použijte následující příkaz přes
+                                <li>Ujistěte se, že máte nainstalovaný balíček pro OSPF. Použijte následující příkaz
+                                    přes
                                     SSH:</li>
                             </ul>
-                            <pre><code>opkg update
-    opkg install quagga</code></pre>
+                            <pre>
+<code>opkg update</code>
+<code>opkg install quagga</code>
+</pre>
                         </li>
                         <li>
                             <strong>Konfigurace Quagga:</strong>
@@ -116,20 +119,20 @@
                                     <pre><code>vi /etc/quagga/zebra.conf</code></pre>
                                     Přidejte následující základní konfiguraci:
                                     <pre><code>hostname Router
-    password vaše_heslo
-    enable password vaše_enable_heslo</code></pre>
+password vaše_heslo
+enable password vaše_enable_heslo</code></pre>
                                 </li>
                                 <li>
                                     Vytvořte nebo upravte soubor <code>ospfd.conf</code>:
                                     <pre><code>vi /etc/quagga/ospfd.conf</code></pre>
                                     Přidejte následující konfiguraci (upravte síťové adresy podle potřeby):
                                     <pre><code>hostname Router
-    password vaše_heslo
-    log file /var/log/quagga/ospfd.log
-    
-    router ospf
-    ospf router-id 1.1.1.1
-    network 192.168.1.0/24 area 0.0.0.0</code></pre>
+password vaše_heslo
+log file /var/log/quagga/ospfd.log
+
+router ospf
+ospf router-id 1.1.1.1
+network 192.168.1.0/24 area 0.0.0.0</code></pre>
                                 </li>
                             </ol>
                         </li>
@@ -139,7 +142,7 @@
                                 <li>Spusťte a povolte službu Quagga:</li>
                             </ul>
                             <pre><code>/etc/init.d/quagga enable
-    /etc/init.d/quagga start</code></pre>
+/etc/init.d/quagga start</code></pre>
                         </li>
                         <li>
                             <strong>Kontrola stavu OSPF:</strong>
@@ -147,7 +150,7 @@
                                 <li>Zkontrolujte stav OSPF a sousedy pomocí příkazu:</li>
                             </ul>
                             <pre><code>vtysh
-    show ip ospf neighbor</code></pre>
+show ip ospf neighbor</code></pre>
                         </li>
                         <li>
                             <strong>Ověření konfigurace:</strong>

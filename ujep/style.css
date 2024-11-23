@@ -147,6 +147,20 @@ summary {
     font-weight: bold;
 }
 
+code{
+    
+}
+
+pre {
+    margin: 5px 0;
+    padding: 20px;
+    border-left: 3px solid red;
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
 .code {
     background-color: var(--color-black);
     margin: 5px 0;
@@ -159,8 +173,6 @@ summary {
     font-style: italic;
 
 }
-
-
 
 .code .sc {
     color: rgb(255, 39, 39) !important;
@@ -286,12 +298,6 @@ input:checked+.slider:before {
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
-}
-
-pre {
-    margin: 5px 0;
-    padding: 20px;
-    border-left: 3px solid red;
 }
 
 @media (max-width: 720px) {
