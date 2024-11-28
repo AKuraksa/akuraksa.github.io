@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KI/PSE</title>
-    <link rel="icon" type="image/x-icon" href="/ujep/itp/pic/net.ico">
+    <link rel="icon" type="image/x-icon" href="/ujep/pic/duck.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -104,6 +104,7 @@
                             </ul>
                             <pre>
 <code>opkg update</code>
+<br>
 <code>opkg install quagga</code>
 </pre>
                         </li>
@@ -118,20 +119,28 @@
                                     Vytvořte nebo upravte soubor <code>zebra.conf</code>:
                                     <pre><code>vi /etc/quagga/zebra.conf</code></pre>
                                     Přidejte následující základní konfiguraci:
-                                    <pre><code>hostname Router
-password vaše_heslo
-enable password vaše_enable_heslo</code></pre>
+                                    <pre>
+                                            <code>hostname Router</code>
+                                            <br>
+                                            <code>password vaše_heslo</code>
+                                            <br>
+                                            <code>enable password vaše_enable_heslo</code>
+                                    </pre>
                                 </li>
                                 <li>
                                     Vytvořte nebo upravte soubor <code>ospfd.conf</code>:
                                     <pre><code>vi /etc/quagga/ospfd.conf</code></pre>
                                     Přidejte následující konfiguraci (upravte síťové adresy podle potřeby):
                                     <pre><code>hostname Router
-password vaše_heslo
+<br>
+                                        password vaše_heslo
+<br>
 log file /var/log/quagga/ospfd.log
-
+<br><br>
 router ospf
+<br>
 ospf router-id 1.1.1.1
+<br>
 network 192.168.1.0/24 area 0.0.0.0</code></pre>
                                 </li>
                             </ol>
@@ -142,6 +151,7 @@ network 192.168.1.0/24 area 0.0.0.0</code></pre>
                                 <li>Spusťte a povolte službu Quagga:</li>
                             </ul>
                             <pre><code>/etc/init.d/quagga enable
+                                <br>
 /etc/init.d/quagga start</code></pre>
                         </li>
                         <li>
@@ -150,6 +160,7 @@ network 192.168.1.0/24 area 0.0.0.0</code></pre>
                                 <li>Zkontrolujte stav OSPF a sousedy pomocí příkazu:</li>
                             </ul>
                             <pre><code>vtysh
+                                <br>
 show ip ospf neighbor</code></pre>
                         </li>
                         <li>

@@ -159,6 +159,9 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     word-break: break-word;
+    unicode-bidi: isolate;
+    white-space-collapse: collapse;
+    font-family: monospace;
 }
 
 .code {
