@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rozcestník</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4f46e5", secondary: "#a78bfa" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+      }
+      .link-button {
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.8);
+      }
+      .link-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
+      background: rgba(255, 255, 255, 0.95);
+      }
+      .social-icon {
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.8) !important;
+      }
+      .social-icon:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
+      background: rgba(255, 255, 255, 0.95) !important;
+      }
+      input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      }
+      input[type="checkbox"]:checked {
+      background-color: #4f46e5;
+      border-color: #4f46e5;
+      }
+      input[type="checkbox"]:checked::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7' /%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col items-center py-10 px-4">
+    <div class="w-full max-w-[600px] flex flex-col items-center relative">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-b from-primary/10 to-transparent rounded-[60px] -z-10 blur-3xl"
+      ></div>
+      <!-- Header Section -->
+      <div class="flex flex-col items-center mb-8">
+        <div
+          class="w-[140px] h-[140px] rounded-full overflow-hidden mb-4 border-4 border-white shadow-xl"
+          style="box-shadow: 0 8px 32px rgba(79, 70, 229, 0.15);"
+        >
+          <img
+            src="https://scontent.fprg5-1.fna.fbcdn.net/v/t39.30808-6/462860888_4111786765722267_7599934318983753548_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=8c2ON_ktv0IQ7kNvwHDTqPv&_nc_oc=AdketDBngwCoDxv_bAPOl4RFJFBOwcONRlKK45Q0QdLhonvJVeA3BBcxfHz1X62ylaY&_nc_zt=23&_nc_ht=scontent.fprg5-1.fna&_nc_gid=4uf2X1H_xYWohCT9TXH5wA&oh=00_AfEAW2YrSnVoGihgSedXE5iu6z50CjZvFYI2QTzi-NNaDw&oe=6804872E"
+            alt="Profile Picture"
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+        <h1
+          class="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-3"
+        >
+          Andrej Kuraksa
+        </h1>
+        <p class="text-gray-600 text-center max-w-md mb-1 text-lg">
+            IT Odborník | Finanční poradce <br>
+            Tato stránka slouží pouze jako rozcestník
+        </p>
+      </div>
+      <!-- Link Button Section -->
+      <div class="w-full space-y-4 mb-8">
+        <a
+          href="portfolio/index.html"
+          class="link-button flex items-center w-full h-[60px] bg-white border border-gray-200 rounded-button shadow-sm px-6 text-gray-800 font-medium hover:bg-gray-50"
+        >
+          <div class="w-6 h-6 flex items-center justify-center mr-4">
+            <i class="ri-global-line text-primary"></i>
+          </div>
+          <span>Osobní web</span>
+        </a>
+        <a
+          href="https://kucharka-site.ki.ujep.cz"
+          class="link-button flex items-center w-full h-[60px] bg-white border border-gray-200 rounded-button shadow-sm px-6 text-gray-800 font-medium hover:bg-gray-50"
+        >
+          <div class="w-6 h-6 flex items-center justify-center mr-4">
+            <i class="ri-book-2-line text-primary"></i>
+          </div>
+          <span>Kuchařka Sítě</span>
+        </a>
+        <a
+          href="#"
+          class="link-button flex items-center w-full h-[60px] bg-white border border-gray-200 rounded-button shadow-sm px-6 text-gray-800 font-medium hover:bg-gray-50"
+        >
+          <div class="w-6 h-6 flex items-center justify-center mr-4">
+            <i class="ri-book-2-line text-primary"></i>
+          </div>
+          <span>UJEP Materiály</span>
+        </a>
+        <a
+          href="#"
+          class="link-button flex items-center w-full h-[60px] bg-white border border-gray-200 rounded-button shadow-sm px-6 text-gray-800 font-medium hover:bg-gray-50"
+        >
+          <div class="w-6 h-6 flex items-center justify-center mr-4">
+            <i class="ri-book-2-line text-primary"></i>
+          </div>
+          <span>BMW Blog</span>
+        </a>
+        <a
+          href="#"
+          class="link-button flex items-center w-full h-[60px] bg-white border border-gray-200 rounded-button shadow-sm px-6 text-gray-800 font-medium hover:bg-gray-50"
+        >
+          <div class="w-6 h-6 flex items-center justify-center mr-4">
+            <i class="ri-calendar-line text-primary"></i>
+          </div>
+          <span>Dotazník</span>
+        </a>
+        <!--
+        <a
+          href="#"
+          class="link-button flex items-center w-full h-[60px] bg-primary text-white rounded-button shadow-lg shadow-primary/25 px-6 font-medium hover:bg-primary/90"
+        >
+          <div class="w-6 h-6 flex items-center justify-center mr-4">
+            <i class="ri-mail-line"></i>
+          </div>
+          <span>Subscribe to Newsletter</span>
+        </a>
+      </div>
+      -->
+      <!-- Newsletter Signup -->
+        <!--
+      <div
+        class="w-full bg-white/80 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-white/50 mb-8"
+      >
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">
+          Join my mailing list
+        </h3>
+        <p class="text-gray-600 text-sm mb-4">
+          Get weekly updates on new content, exclusive offers, and industry
+          insights.
+        </p>
+        <div class="flex items-center space-x-2 mb-4">
+          <input type="checkbox" id="consent" class="rounded" />
+          <label for="consent" class="text-sm text-gray-600"
+            >I agree to receive marketing emails</label
+          >
+        </div>
+        <div class="flex space-x-2">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="flex-1 h-12 px-4 rounded-button border border-gray-200 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
+          />
+          <button
+            class="h-12 px-6 bg-primary text-white rounded-button whitespace-nowrap font-medium text-sm hover:bg-primary/90 shadow-lg shadow-primary/25"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    -->
+      <!-- Social Media Icons -->
+      <div class="flex justify-center space-x-6 mb-8">
+        <a
+          href="https://www.facebook.com/kurvaksa"
+          class="social-icon w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-200"
+        >
+          <i class="ri-facebook-line text-gray-700"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/akuraksa_/"
+          class="social-icon w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-200"
+        >
+          <i class="ri-instagram-line text-gray-700"></i>
+        </a>
+        <a
+          href="https://x.com/Askavruk"
+          class="social-icon w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-200"
+        >
+          <i class="ri-twitter-x-line text-gray-700"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/andrej-kuraksa-30a691242/"
+          class="social-icon w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-200"
+        >
+          <i class="ri-linkedin-line text-gray-700"></i>
+        </a>
+        <a
+          href="https://github.com/AKuraksa"
+          class="social-icon w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-200"
+        >
+          <i class="ri-github-line text-gray-700"></i>
+        </a>
+      </div>
+      <!-- Footer -->
+      <footer class="w-full text-center">
+        <p class="text-gray-500 text-sm">
+          © 2025 Andrej Kuraksa. Všechny práva vyhrazena.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

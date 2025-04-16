@@ -1,89 +1,1253 @@
-<!DOCTYPE HTML>
-<html lang="cs">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://akuraksa.github.io/portfolio/css/style.css">
-    <link rel="stylesheet" href="https://akuraksa.github.io/portfolio/css/font.css">
-  </head>
-  <body>
-    <div id="page">
-      <header>
-        <div class="row">
-          <div class="leftcolumn">
-            <img src="picture/profilovka.jpg" alt="Andrej Kuraksa" width="100px" height="100px">
-            <h1><a href="https://akuraksa.github.io/portfolio/index.html">Andrej Kuraksa</a></h1>
-          </div>
-          <div class="rightcolumn">
-            <div class="row" style="float: right;">
-              <a href="https://www.facebook.com/kurvaksa/" target="_blank" rel="noopener noreferrer"><img src="picture/facebook-48.png" alt="Facebook" width="40px" height="40px"></a>
-              <a href="https://www.instagram.com/kurvaksa/" target="_blank" rel="noopener noreferrer"><img src="picture/instagram-48.png" alt="Instagram" width="40px" height="40px"></a>
-              <a href="https://www.linkedin.com/in/andrej-kuraksa-30a691242/" target="_blank" rel="noopener noreferrer"><img src="picture/linkedin-48.png" alt="Linked in" width="40px" height="40px"></a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrej Kuraksa - IT Odborník & Finanční poradce</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#1e40af", secondary: "#64748b" },
+                    borderRadius: {
+                        none: "0px",
+                        sm: "4px",
+                        DEFAULT: "8px",
+                        md: "12px",
+                        lg: "16px",
+                        xl: "20px",
+                        "2xl": "24px",
+                        "3xl": "32px",
+                        full: "9999px",
+                        button: "8px",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #1e40af;
+            border: 3px solid white;
+            z-index: 1;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 16px;
+            bottom: -40px;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #1e40af;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(30px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-semibold text-gray-900">Andrej Kuraksa</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-primary transition-colors">O mně</a>
+                <a href="#experience" class="text-gray-700 hover:text-primary transition-colors">Kariéra</a>
+                <a href="#portfolio" class="text-gray-700 hover:text-primary transition-colors">Projekty</a>
+                <a href="#knowledge" class="text-gray-700 hover:text-primary transition-colors">Znalosti</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Kontakt</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider"></span>
+                </label>
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+                    id="mobile-menu-button">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
             </div>
-          </div>
         </div>
-      </header>
-      <nav>
-        <a href="https://akuraksa.github.io/portfolio/index.html">Domů</a>
-        <a href="#projekty">Projekty</a>
-        <a href="#kontakt">Kontakt</a>
-        <div class="nav-right">
-          <a href="https://akuraksa.github.io">Rozcestník</a>
-        </div>
-      </nav>
-      <main>
-        <div class="row">
-          <div class="leftcolumn">
-            <div class="card">
-              <h1 id="projekty">Projekty:</h1>
-              <article>
-                <h2>Vrhcáby</h2>
-                <p><a href="https://github.com/LeHoangTu03/vrhcaby">Odkaz</a></p>
-                <p>Jazyk: Python</p>
-                <p>Podrobnosti: Týmová práce</p>
-              </article>
-              <article>
-                <h2>Databáze studentů</h2>
-                <p>Jazyk: Visual Basic for Application</p>
-              </article>
+        <div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-md" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="py-2 text-gray-700 hover:text-primary transition-colors">O mně</a>
+                <a href="#experience" class="py-2 text-gray-700 hover:text-primary transition-colors">Kariéra</a>
+                <a href="#portfolio" class="py-2 text-gray-700 hover:text-primary transition-colors">Projekty</a>
+                <a href="#knowledge" class="py-2 text-gray-700 hover:text-primary transition-colors">Znalosti</a>
+                <a href="#contact" class="py-2 text-gray-700 hover:text-primary transition-colors">Kontakt</a>
             </div>
-          </div>
-          <div class="rightcolumn">
-            <div class="card">
-              <h1>O mně</h1>
-              <p>Studuji aplikovanou informatiku na Univerzitě Jana Evangelisty Purkyně v Ústí nad Labem</p>
-              <h2>Pracovní stav:</h2>
-              <p>Aktuálně sháním brigádu ke studiu (nejlépe v oboru) <a href="https://ujepcz-my.sharepoint.com/:w:/g/personal/st98395_students_ujep_cz/EQwWYyOOD0FPh5yQ-nmTURQBM9ObSfPYFPWfiTcT5VxWug?e=Dq8Eud">Životopis</a></p>
-              <h2>Programovací jazyky:</h2>
-              <ul>
-                <li>Python</li>
-                <li>VBA</li>
-              </ul>
-              <h2>Zájmy:</h2>
-              <p>Počítačové sítě</p>
-            </div>
-          </div>
         </div>
-      </main>
-      <footer>
-        <div class="row">
-          <div class="leftcolumn">
-            <p>Andrej Kuraksa</p>
-            <p id="kontakt">Kontakt: <a href="mailto:andrej.kuraksa+githubio@gmail.com">andrej.kuraksa@gmail.com</a></p>
-            <div class="row">
-              <a href="https://www.facebook.com/kurvaksa/" target="_blank" rel="noopener noreferrer"><img src="picture/facebook-48.png" alt="Facebook" width="25px" height="25px"></a>
-              <a href="https://www.instagram.com/kurvaksa/" target="_blank" rel="noopener noreferrer"><img src="picture/instagram-48.png" alt="Instagram" width="25px" height="25px"></a>
-              <a href="https://www.linkedin.com/in/andrej-kuraksa-30a691242/" target="_blank" rel="noopener noreferrer"><img src="picture/linkedin-48.png" alt="Linked in" width="25px" height="25px"></a>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="about" class="bg-white py-16">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 flex flex-col items-center md:items-start mb-10 md:mb-0">
+                    <div class="w-48 h-48 mb-6 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                        <img src="https://scontent.fprg5-1.fna.fbcdn.net/v/t39.30808-6/462860888_4111786765722267_7599934318983753548_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=8c2ON_ktv0IQ7kNvwHDTqPv&_nc_oc=AdketDBngwCoDxv_bAPOl4RFJFBOwcONRlKK45Q0QdLhonvJVeA3BBcxfHz1X62ylaY&_nc_zt=23&_nc_ht=scontent.fprg5-1.fna&_nc_gid=4uf2X1H_xYWohCT9TXH5wA&oh=00_AfEAW2YrSnVoGihgSedXE5iu6z50CjZvFYI2QTzi-NNaDw&oe=6804872E"
+                            alt="Andrej Kuraksa" class="w-full h-full object-cover object-top" />
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 text-center md:text-left">
+                        Andrej Kuraksa
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-6 text-center md:text-left">
+                        IT Odborník | Finanční poradce
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/andrej-kuraksa-30a691242/"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                            <i class="ri-linkedin-fill ri-lg"></i>
+                        </a>
+                        <a href="https://github.com/AKuraksa"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                            <i class="ri-github-fill ri-lg"></i>
+                        </a>
+                        <a href="https://x.com/Askavruk"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                            <i class="ri-twitter-x-fill ri-lg"></i>
+                        </a>
+                        <a href="mailto:andrej.kuraksa@seznam.cz"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                            <i class="ri-mail-fill ri-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded shadow-lg border border-gray-100">
+                        <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+                            O mně
+                        </h2>
+                        <p class="text-gray-700 mb-6">
+                            Technologiím se věnuji už přes 7 let. Nejvíc mě aktuálně baví kyberbezpečnost a rád vytvářím
+                            řešení, která dávají smysl. Jako IT technik na UJEPu řeším techniku denně, ale moje mysl
+                            míří dál.
+                            Protože svět financí ovlivňuje každého z nás, vydal jsem se dále cestou finančního
+                            poradenství. Věřím, že když člověk rozumí svým možnostem, může dělat lepší rozhodnutí – v
+                            životě i v penězích.
+                            Moje filozofie je jednoduchá: I když nevím všechno, vždycky najdu řešení.“ Tento přístup mě
+                            vede při každém novém projektu a výzvě. Ať už čelím technologickým problémům nebo komplexním
+                            finančním otázkám, vždy se soustředím na hledání řešení.
+                            V budoucnu bych rád propojil know-how z těchto oborů cestou vlastního podnikání, které
+                            slouží jednomu cíli: pomoct lidem růst.
+                        </p>
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">
+                                Zkušenosti
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm whitespace-nowrap">7+
+                                    let v IT</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm whitespace-nowrap">Kyberbezpečnost</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm whitespace-nowrap">Full-Stack
+                                    Development</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm whitespace-nowrap">IT
+                                    technik</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm whitespace-nowrap">Investiční
+                                    strategie</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm whitespace-nowrap">Finanční
+                                    modelování</span>
+                            </div>
+                        </div>
+                        <a href="#contact"
+                            class="inline-block bg-primary hover:bg-blue-800 text-white px-6 py-3 rounded-button font-medium transition-colors !rounded-button whitespace-nowrap">Kontaktuj mě</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="rightcolumn" style="text-align: right;">
-            <p>Edit start: 06.04.2023</p>
-            <p>Last edit:  11.04.2023</p>
-            <p><a href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fakuraksa" target="_blank" rel="noopener noreferrer">Administrace</a></p>
-          </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                    Dovednosti a odbornost
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- IT Skills -->
+                    <div class="bg-white p-8 rounded shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center mr-2 bg-blue-100 rounded-full text-primary">
+                                <i class="ri-code-s-slash-line"></i>
+                            </span>
+                            IT Dovednosti
+                        </h3>
+
+                        <div class="space-y-5">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Python</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">VBA</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Financial Knowledge -->
+                    <div class="bg-white p-8 rounded shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center mr-2 bg-blue-100 rounded-full text-primary">
+                                <i class="ri-line-chart-line"></i>
+                            </span>
+                            Finanční znalosti
+                        </h3>
+
+                        <div class="space-y-5">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Investice</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress bg-primary" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Pojištění</span>
+                                    <span class="text-gray-600">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress bg-primary" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                    Profesní kariéra
+                </h2>
+
+                <div class="relative pl-12 md:pl-16 max-w-3xl mx-auto">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="relative mb-12 timeline-item">
+                        <div class="bg-white p-6 rounded shadow-lg border border-gray-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold text-gray-900">
+                                    Finanční poradce
+                                </h3>
+                                <div class="flex items-center mt-2 md:mt-0">
+                                    <span class="text-primary font-medium">BEplan</span>
+                                    <span class="mx-2 text-gray-400">|</span>
+                                    <span class="text-gray-600 text-sm">2025 - současnost</span>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-700 mb-4">
+                                V rámci finančního poradenství pomáhám klientům dosahovat jejich životních cílů
+                                prostřednictvím efektivního plánování a investic. Moje práce se zaměřuje na individuální
+                                analýzu potřeb klienta, tvorbu osobních finančních plánů a doporučování vhodných
+                                investičních strategií, které pomáhají růst jejich finančnímu zabezpečení.
+                            </p>
+
+                            <div class="mb-4">
+                                <h4 class="text-gray-800 font-medium mb-2">
+                                    Klíčové odpovědnosti:
+                                </h4>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                    <li>Analýza finanční situace klienta a návrh řešení na míru</li>
+                                    <li>Vytváření osobních finančních plánů zaměřených na růst a ochranu majetku</li>
+                                    <li>Doporučování investičních strategií a produktů, které odpovídají cílům klienta
+                                    </li>
+                                    <li>Vzdělávání klientů v oblasti financí, investic a plánování</li>
+                                    <li>Pomoc při optimalizaci výdajů, daní a správě osobního kapitálu</li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Investiční
+                                    plánování</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Finanční
+                                    analýza</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Poradenství</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Správa
+                                    majetku</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Plánování
+                                    financí</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative mb-12 timeline-item">
+                        <div class="bg-white p-6 rounded shadow-lg border border-gray-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold text-gray-900">
+                                    IT Technik
+                                </h3>
+                                <div class="flex items-center mt-2 md:mt-0">
+                                    <span class="text-primary font-medium">Univerzita J. E. Purkyně (UJEP)</span>
+                                    <span class="mx-2 text-gray-400">|</span>
+                                    <span class="text-gray-600 text-sm">2024 - současnost</span>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-700 mb-4">
+                                Jako IT technik na UJEPu spravuji technickou infrastrukturu budovy, poskytuju
+                                podporu uživatelům a denně řeším technické problémy. Zajišťujeme bezproblémový chod
+                                všech systémů a služeb.
+                            </p>
+
+                            <div class="mb-4">
+                                <h4 class="text-gray-800 font-medium mb-2">
+                                    Klíčové odpovědnosti:
+                                </h4>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                    <li>Správa serverové infrastruktury</li>
+                                    <li>Poskytování podpory uživatelům</li>
+                                    <li>Instalace a konfigurace softwaru a služeb</li>
+                                    <li>Zajištění bezpečnosti sítě a monitorování výkonu systémů</li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Windows
+                                    Server</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Linux</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Síťové
+                                    technologie</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Bezpečnostní
+                                    nástroje</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm whitespace-nowrap">Podpora
+                                    uživatelů</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                    Vybrané projekty
+                </h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div
+                        class="bg-white rounded overflow-hidden shadow-lg transition-transform hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=modern%20cloud%20infrastructure%20dashboard%20with%20graphs%20and%20metrics%2C%20clean%20UI%20design%2C%20professional%20enterprise%20software%20interface%2C%20monitoring%20system%20with%20charts%20and%20statistics&width=600&height=400&seq=2&orientation=landscape"
+                                alt="Cloud Infrastructure Platform" class="w-full h-full object-cover object-top" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Kalisen
+                            </h3>
+                            <p class="text-gray-700 mb-4">
+                                Projekt pro analýzu a kalibraci senzorů
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Python</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Flask</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">JavaScript</span>
+                            </div>
+                            <a href="https://github.com/AKuraksa/sensor_calibration"
+                                class="inline-block bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-button text-sm font-medium transition-colors !rounded-button whitespace-nowrap">View
+                                Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                     <!--
+                    <div
+                        class="bg-white rounded overflow-hidden shadow-lg transition-transform hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=financial%20dashboard%20with%20stock%20market%20data%20visualization%2C%20investment%20portfolio%20tracker%2C%20professional%20fintech%20application%20with%20charts%20and%20analytics%2C%20clean%20modern%20interface&width=600&height=400&seq=3&orientation=landscape"
+                                alt="Investment Portfolio Tracker" class="w-full h-full object-cover object-top" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Investment Portfolio Tracker
+                            </h3>
+                            <p class="text-gray-700 mb-4">
+                                A financial analytics platform that helps investors track
+                                performance, analyze trends, and optimize their investment
+                                portfolios.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Python</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Django</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Vue.js</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">PostgreSQL</span>
+                            </div>
+                            <a href="#"
+                                class="inline-block bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-button text-sm font-medium transition-colors !rounded-button whitespace-nowrap">View
+                                Project</a>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- Project 3 -->
+                     <!--
+                    <div
+                        class="bg-white rounded overflow-hidden shadow-lg transition-transform hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=DevOps%20CI%2FCD%20pipeline%20visualization%2C%20continuous%20integration%20system%2C%20software%20deployment%20automation%20platform%2C%20professional%20development%20operations%20dashboard%20with%20metrics&width=600&height=400&seq=4&orientation=landscape"
+                                alt="CI/CD Automation Framework" class="w-full h-full object-cover object-top" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                CI/CD Automation Framework
+                            </h3>
+                            <p class="text-gray-700 mb-4">
+                                An end-to-end CI/CD solution that automates testing, security
+                                scanning, and deployment for software development teams.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Jenkins</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Docker</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Kubernetes</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-primary rounded-full text-xs whitespace-nowrap">Go</span>
+                            </div>
+                            <a href="#"
+                                class="inline-block bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-button text-sm font-medium transition-colors !rounded-button whitespace-nowrap">View
+                                Project</a>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Hub Section -->
+        <section id="knowledge" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                    Znalosti
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- IT Section -->
+                    <div>
+                        <div class="bg-primary bg-opacity-5 p-8 rounded shadow-lg">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                                <span
+                                    class="w-10 h-10 flex items-center justify-center mr-3 bg-primary bg-opacity-10 rounded-full text-primary">
+                                    <i class="ri-code-s-slash-line ri-lg"></i>
+                                </span>
+                                IT Znalosti
+                            </h3>
+
+                            <!-- Latest Articles -->
+                             <!--
+                            <div class="mb-8">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4 border-b border-gray-200 pb-2">
+                                    Latest Articles
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4 items-start">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-article-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                Optimizing Kubernetes for Enterprise Workloads
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">
+                                                April 10, 2025 • 12 min read
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-4 items-start">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-article-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                Implementing Zero-Trust Security in Cloud Environments
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">
+                                                March 28, 2025 • 15 min read
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-4 items-start">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-article-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                The Future of Serverless Computing
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">
+                                                March 15, 2025 • 10 min read
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                            <!-- Certifications -->
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800 mb-4 border-b border-gray-200 pb-2">
+                                    Certifikace
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4 items-center">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-award-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                NDG Linux Essentials
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">
+                                                Získáno 2021
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Section -->
+                    <div>
+                        <div class="bg-primary bg-opacity-5 p-8 rounded shadow-lg">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                                <span
+                                    class="w-10 h-10 flex items-center justify-center mr-3 bg-primary bg-opacity-10 rounded-full text-primary">
+                                    <i class="ri-line-chart-line ri-lg"></i>
+                                </span>
+                                Finanční znalosti
+                            </h3>
+
+                            <!-- Market Insights -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4 border-b border-gray-200 pb-2">
+                                    Články
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4 items-start">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-funds-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                Nabídka finančních služeb na trhu
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">
+                                                Duben 20, 2025 • 14 min read
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certifications -->
+                             <!--
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800 mb-4 border-b border-gray-200 pb-2">
+                                    Certifications
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4 items-center">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-award-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                Chartered Financial Analyst (CFA) - Level II
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">
+                                                In Progress • Expected Completion 2025
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-4 items-center">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-award-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                Financial Risk Manager (FRM) - Part I
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">Issued Nov 2023</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-4 items-center">
+                                        <div
+                                            class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded flex items-center justify-center text-primary">
+                                            <i class="ri-award-line ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-gray-900">
+                                                Bloomberg Market Concepts (BMC)
+                                            </h5>
+                                            <p class="text-gray-600 text-sm">Issued June 2022</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Trends Chart -->
+                 <!--
+                <div class="mt-12 bg-white p-8 rounded shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                        Market Performance Analysis
+                    </h3>
+                    <div id="market-chart" class="w-full h-80"></div>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                    Kontaktuj mě
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Contact Info -->
+                    <div class="bg-white p-8 rounded shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                            Kontaktní informace
+                        </h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center mr-4 bg-blue-100 rounded-full text-primary">
+                                    <i class="ri-mail-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 mb-1">Email</h4>
+                                    <p class="text-gray-700">andrej.kuraksa@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center mr-4 bg-blue-100 rounded-full text-primary">
+                                    <i class="ri-smartphone-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 mb-1">Telefon</h4>
+                                    <p class="text-gray-700">+420 605 868 980</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center mr-4 bg-blue-100 rounded-full text-primary">
+                                    <i class="ri-map-pin-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 mb-1">Lokalita</h4>
+                                    <p class="text-gray-700">Teplice, Česká republika</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center mr-4 bg-blue-100 rounded-full text-primary">
+                                    <i class="ri-time-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 mb-1">Dostupnost</h4>
+                                    <p class="text-gray-700">
+                                        Vždy
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-900 mb-4">Spojte se se mnou</h4>
+                            <div class="flex space-x-3">
+                                <a href="https://www.facebook.com/kurvaksa"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                                    <i class="ri-facebook-fill ri-lg"></i>
+                                </a>
+                                <a href="https://www.instagram.com/akuraksa_/"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                                    <i class="ri-instagram-fill ri-lg"></i>
+                                </a>
+                                <a href="https://x.com/Askavruk"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                                    <i class="ri-twitter-x-fill ri-lg"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/andrej-kuraksa-30a691242/"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                                    <i class="ri-linkedin-fill ri-lg"></i>
+                                </a>
+                                <a href="https://github.com/AKuraksa"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                                    <i class="ri-github-fill ri-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 rounded shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                            Napište mi zprávu
+                        </h3>
+
+                        <form>
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-2">Jméno</label>
+                                    <input type="text" id="name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="Vaše jméno" />
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="Váš email" />
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 mb-2">Předmět</label>
+                                <input type="text" id="subject"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Předmět zprávy" />
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Zpráva</label>
+                                <textarea id="message" rows="5"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Vaše message"></textarea>
+                            </div>
+                            
+                            <div class="flex items-center mb-6">
+                                <!--
+                                <div class="relative inline-block w-10 h-5 mr-2 align-middle">
+                                    <input type="checkbox" id="newsletter" class="opacity-0 w-0 h-0 absolute" />
+                                    <label for="newsletter"
+                                        class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                    <style>
+                                        .toggle-label {
+                                            width: 40px;
+                                            transition: background-color 0.2s;
+                                        }
+
+                                        .toggle-label:after {
+                                            content: "";
+                                            position: absolute;
+                                            top: 2px;
+                                            left: 2px;
+                                            width: 16px;
+                                            height: 16px;
+                                            background-color: white;
+                                            border-radius: 50%;
+                                            transition: transform 0.2s;
+                                        }
+
+                                        #newsletter:checked+.toggle-label {
+                                            background-color: #1e40af;
+                                        }
+
+                                        #newsletter:checked+.toggle-label:after {
+                                            transform: translateX(20px);
+                                        }
+                                    </style>
+                                </div>
+                                
+                                <label for="newsletter" class="text-gray-700 cursor-pointer">Subscribe to my
+                                    newsletter</label>
+                                    -->
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-primary hover:bg-blue-800 text-white py-3 px-6 rounded-button font-medium transition-colors !rounded-button whitespace-nowrap">
+                                Odeslat zprávu
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!--
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Andrej Kuraksa</h3>
+                    <p class="text-gray-400 mb-4">
+                        IT Professional & Financial Enthusiast with a passion for building
+                        scalable solutions and optimizing investment strategies.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/kurvaksa"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/akuraksa_/"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://x.com/Askavruk"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-twitter-x-fill"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/andrej-kuraksa-30a691242/"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="https://github.com/AKuraksa"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-github-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>
+                            <a href="#about" class="hover:text-white transition-colors">About</a>
+                        </li>
+                        <li>
+                            <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#knowledge" class="hover:text-white transition-colors">Knowledge Hub</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to receive updates on my latest projects and insights.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full bg-gray-800 border-none rounded-l text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary" />
+                        <button type="submit"
+                            class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-r font-medium transition-colors whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+                -->
+            </div>
+            
+
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500">
+                <p>&copy; 2025 Andrej Kuraksa. Všechny práva vyhrazená.</p>
+                <p class="mt-2 text-sm">Poslední úprava: April 15, 2025</p>
+            </div>
         </div>
-      </footer>
-    </div>
-  </body>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            mobileMenuButton.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: "smooth",
+                        });
+
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains("hidden")) {
+                            mobileMenu.classList.add("hidden");
+                        }
+                    }
+                });
+            });
+
+            // Initialize skill bars animation
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.width = entry.target.getAttribute("data-width");
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
+
+            document.querySelectorAll(".skill-progress").forEach((bar) => {
+                bar.style.width = "0";
+                bar.setAttribute("data-width", bar.style.width);
+                observer.observe(bar);
+            });
+        });
+
+        // Theme toggle functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("theme-toggle");
+
+            themeToggle.addEventListener("change", function () {
+                if (this.checked) {
+                    document.body.classList.add("dark-mode");
+                    // Add dark mode styles here if needed
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    // Remove dark mode styles here if needed
+                }
+            });
+        });
+
+        // Initialize market chart
+        document.addEventListener("DOMContentLoaded", function () {
+            const chartDom = document.getElementById("market-chart");
+            const myChart = echarts.init(chartDom);
+
+            const option = {
+                animation: false,
+                tooltip: {
+                    trigger: "axis",
+                    backgroundColor: "rgba(255, 255, 255, 0.8)",
+                    borderColor: "#e5e7eb",
+                    textStyle: {
+                        color: "#1f2937",
+                    },
+                },
+                legend: {
+                    data: ["S&P 500", "Tech Sector", "Financial Sector", "My Portfolio"],
+                    textStyle: {
+                        color: "#1f2937",
+                    },
+                },
+                grid: {
+                    left: "3%",
+                    right: "4%",
+                    bottom: "3%",
+                    top: "60px",
+                    containLabel: true,
+                },
+                xAxis: {
+                    type: "category",
+                    boundaryGap: false,
+                    data: [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec",
+                    ],
+                    axisLine: {
+                        lineStyle: {
+                            color: "#d1d5db",
+                        },
+                    },
+                    axisLabel: {
+                        color: "#4b5563",
+                    },
+                },
+                yAxis: {
+                    type: "value",
+                    axisLine: {
+                        lineStyle: {
+                            color: "#d1d5db",
+                        },
+                    },
+                    axisLabel: {
+                        color: "#4b5563",
+                        formatter: "{value}%",
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: "#e5e7eb",
+                        },
+                    },
+                },
+                series: [
+                    {
+                        name: "S&P 500",
+                        type: "line",
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: "rgba(87, 181, 231, 1)",
+                        },
+                        symbol: "none",
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: "rgba(87, 181, 231, 0.2)",
+                                },
+                                {
+                                    offset: 1,
+                                    color: "rgba(87, 181, 231, 0.05)",
+                                },
+                            ]),
+                        },
+                        data: [5.2, 4.8, 6.1, 7.5, 8.2, 7.9, 8.5, 9.2, 8.7, 9.5, 10.2, 11.5],
+                    },
+                    {
+                        name: "Tech Sector",
+                        type: "line",
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: "rgba(141, 211, 199, 1)",
+                        },
+                        symbol: "none",
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: "rgba(141, 211, 199, 0.2)",
+                                },
+                                {
+                                    offset: 1,
+                                    color: "rgba(141, 211, 199, 0.05)",
+                                },
+                            ]),
+                        },
+                        data: [
+                            8.5, 9.2, 10.5, 12.1, 14.2, 13.5, 15.2, 16.8, 15.5, 17.2, 18.5, 20.2,
+                        ],
+                    },
+                    {
+                        name: "Financial Sector",
+                        type: "line",
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: "rgba(251, 191, 114, 1)",
+                        },
+                        symbol: "none",
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: "rgba(251, 191, 114, 0.2)",
+                                },
+                                {
+                                    offset: 1,
+                                    color: "rgba(251, 191, 114, 0.05)",
+                                },
+                            ]),
+                        },
+                        data: [4.2, 3.8, 4.5, 5.2, 6.1, 5.8, 6.5, 7.2, 6.8, 7.5, 8.2, 9.5],
+                    },
+                    {
+                        name: "My Portfolio",
+                        type: "line",
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: "rgba(252, 141, 98, 1)",
+                        },
+                        symbol: "none",
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: "rgba(252, 141, 98, 0.2)",
+                                },
+                                {
+                                    offset: 1,
+                                    color: "rgba(252, 141, 98, 0.05)",
+                                },
+                            ]),
+                        },
+                        data: [
+                            7.5, 8.2, 9.5, 11.2, 13.5, 12.8, 14.5, 16.2, 15.5, 17.8, 19.2, 21.5,
+                        ],
+                    },
+                ],
+            };
+
+            myChart.setOption(option);
+
+            window.addEventListener("resize", function () {
+                myChart.resize();
+            });
+        });
+    </script>
+</body>
+
 </html>
